@@ -9,3 +9,4 @@
 	exit;
 ?>
 Something is wrong with the XAMPP installation :-(
+This is not really wrong, idiot!
