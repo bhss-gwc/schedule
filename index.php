@@ -10,3 +10,4 @@
 ?>
 Something is wrong with the XAMPP installation :-(
 This is not really wrong, idiot!
+Hello World! This is another testing.
