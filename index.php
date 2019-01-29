@@ -5,9 +5,7 @@
 		$uri = 'http://';
 	}
 	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/dashboard/');
+	header('Location: '.$uri.'/schedule/displaymeetings.php');
 	exit;
 ?>
 Something is wrong with the XAMPP installation :-(
-This is not really wrong, idiot!
-Hello World! This is another testing.
