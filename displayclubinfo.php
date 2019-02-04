@@ -103,7 +103,9 @@
 
 <?php
 
-$clubname = $_GET["club"];
+// comment
+
+$clubname = $_GET['clubname'];
 
 // connect to database
 $servername = "localhost";
