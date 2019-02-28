@@ -6,7 +6,7 @@
 
 <body>
 
-<h1>Form: Schedule Changes hey</h1>
+<h1>Form: Schedule Changes</h1>
 <form action = "handlerschedulechange.php" method="POST">
 Date of schedule change: <br>
 <input type = "text" name = "dateofschedulechange"/><br><br>
