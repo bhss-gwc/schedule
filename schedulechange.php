@@ -80,6 +80,12 @@
       </head>
       <body>
 
+        <?php
+          if(!isset($_COOKIE['club-name'])){
+          	exit();
+          	}
+        ?>
+
       <div class="navbar">
         <a href="introduce.php">Introduce Your Club</a>
         <a href="displaymeetings.php"> Club Meetings</a>
