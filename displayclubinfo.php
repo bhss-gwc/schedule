@@ -104,7 +104,7 @@
 
 <?php
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //$clubname = $_GET["club"];
 =======
 >>>>>>> master
