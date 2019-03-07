@@ -106,8 +106,8 @@
 
 //<<<<<<< HEAD
 //$clubname = $_GET["club"];
-=======
->>>>>>> master
+//=======
+//>>>>>>> master
 
 // connect to database
 $servername = "localhost";
