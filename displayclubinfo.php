@@ -119,7 +119,7 @@ if (!$dbconnector) {
     die("DB Connection Error" . mysqli_connect_error());
 }
 
-$query = "SELECT * FROM introduce_responses WHERE clubname = \"$clubname\" ";
+$query = "SELECT * FROM introduce_responses";
 $result = mysqli_query($dbconnector, $query);
 
 if (mysqli_num_rows($result) > 0) {
