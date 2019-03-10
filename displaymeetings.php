@@ -84,6 +84,7 @@ font-family: Arial, Helvetica, sans-serif;
       <a href="introduce.php">Introduce Your Club</a>
       <a href="displaymeetings.php"> Club Meetings</a>
       <a href="displayclubinfo.php">Club Info</a>
+      <a href="bell_schedule.html">Bell Schedule</a>
       <div class="dropdown">
       <button class="dropbtn" onclick="myFunction()">Dropdown
         <i class="fa fa-caret-down"></i>

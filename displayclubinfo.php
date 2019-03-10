@@ -84,6 +84,7 @@
         <a href="introduce.php">Introduce Your Club</a>
         <a href="displaymeetings.php"> Club Meetings</a>
         <a href="displayclubinfo.php">Club Info</a>
+        <a href="schedulechange.php">Schedule Changes</a>
         <div class="dropdown">
         <button class="dropbtn" onclick="myFunction()">Dropdown
           <i class="fa fa-caret-down"></i>
@@ -103,7 +104,7 @@
 
 <?php
 
-// comment
+//$clubname = $_GET["club"];
 
 $clubname = $_GET['clubname'];
 
@@ -119,7 +120,7 @@ if (!$dbconnector) {
     die("DB Connection Error" . mysqli_connect_error());
 }
 
-$query = "SELECT * FROM introduce_responses WHERE clubname = \"$clubname\" ";
+$query = "SELECT * FROM introduce_responses";
 $result = mysqli_query($dbconnector, $query);
 
 if (mysqli_num_rows($result) > 0) {
