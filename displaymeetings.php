@@ -120,7 +120,13 @@ $query = "SELECT * FROM meetings ORDER by meetingdate asc";
 $result = mysqli_query($dbconnector, $query);
 
 if (mysqli_num_rows($result) > 0) {
-  echo "<table border='1' width='50%' bgcolor='#D2B4DE'><tr><th style=\"font-family: Arial, Helvetica, sans-serif;\">Meeting Date</th><th style=\"font-family: Arial, Helvetica, sans-serif;\">Start Time</th><th style=\"font-family: Arial, Helvetica, sans-serif;\">Stop Time</th><th style=\"font-family: Arial, Helvetica, sans-serif;\">Location</th><th style=\"font-family: Arial, Helvetica, sans-serif;\">Club Name</th></tr>";
+  echo "<table border='1' width='50%' bgcolor='#D2B4DE'><tr>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Meeting Date</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Start Time</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Stop Time</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Location</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Club Name</th>
+  </tr>";
   while ($row = mysqli_fetch_assoc($result)) {
     if($row['meetingdate'] == '') continue;
     echo "<tr>

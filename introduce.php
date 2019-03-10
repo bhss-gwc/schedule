@@ -100,7 +100,7 @@
 
 </head>
 
-<body>
+<body style="font-family:Arial, Helvetica, sans-serif;">
 
 <form action = "handlerintroduce.php" method="POST">
 Club Name: <br>
