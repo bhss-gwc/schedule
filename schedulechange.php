@@ -81,7 +81,7 @@
       <body>
 
         <?php
-          if(!isset($_COOKIE['club-name'])){
+          if(!isset($_COOKIE['newschedule'])){
           	exit();
           	}
         ?>
