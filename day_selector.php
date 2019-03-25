@@ -13,6 +13,7 @@
 ?>
 
 $currentmonth = ;//use php query thing
+$currentdate = ;//use php query other thing
 
 echo <SELECT name = "month">
   if($currentmonth <= 1){
@@ -53,11 +54,25 @@ echo <SELECT name = "month">
 
 </select>
 
+echo <SELECT name = "date">
+  for ($i = 0; $i < 32; $i++){
+    echo '<option value = $i>$i</option>';
+  }
+</select>
+
+echo <SELECT name = "scheduletype"><!--finish doing this select query/!-->
+  $schedulelist = SELECT schedule_type FROM schedule_change
+  foreach($schedule in $schedulelist){
+
+    GROUP BY schedule_type;
+;
+    echo '<option value = $schedulename>$schedulename</option>';
+  }
 <h1>Form: Enter the date and selected schedule</h1>
 <form action = "handlermeetings.php" method="POST">
-Meeting Date: <br>
+<!--Meeting Date: <br>
 <input type = "text" name = "datemonth"/><br><br>
-<input type = "text" name = "datemonth"/><br><br>
+<input type = "text" name = "datemonth"/><br><br></!-->
 <input type="radio" name="newornot"/>
 <?php if (isset($newornot)) echo "checked";?>
 
