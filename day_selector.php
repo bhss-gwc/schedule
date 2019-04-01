@@ -8,14 +8,21 @@
 
 <?php
   if(!isset($_COOKIE['club-name'])){
-  	exit();
+  	//exit();
   	}
-?>
 
-$currentmonth = ;//use php query thing
-$currentdate = ;//use php query other thing
 
-echo <SELECT name = "month">
+//connect to database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "bhss_schedule";
+$dbconnector = mysqli_connect($servername, $username, $password, $dbname);
+
+$currentmonth = 1;//add php queries
+$currentdate = 1;
+
+echo '<SELECT name = "month">';
   if($currentmonth <= 1){
     echo '<option value = "01">Jan</option>';
   }
@@ -52,22 +59,31 @@ echo <SELECT name = "month">
     echo '<option value = "12">Dec</option>';
   }
 
-</select>
+echo '</select>';
 
-echo <SELECT name = "date">
-  for ($i = 0; $i < 32; $i++){
-    echo '<option value = $i>$i</option>';
+echo '<SELECT name = "date">';
+  for ($i = 1; $i < 32; $i++){
+    echo '<option value = "' . $i . '">' . $i . '</option>';
   }
-</select>
+echo '</select>';
 
-echo <SELECT name = "scheduletype"><!--finish doing this select query/!-->
-  $schedulelist = SELECT schedule_type FROM schedule_change
-  foreach($schedule in $schedulelist){
+echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing $dbc-->
+  $q = "SELECT schedule_type FROM schedule_change GROUP BY schedule_type";
+  $r = @mysqli_query ($dbc, $q);
+  if($r){
+    if(mysqli_num_rows($r) > 0){
+      echo '<select>';
+		while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+			echo "<option value={$row['name']}>{$row['name']}</option>";
+		}
+		echo '</select>';
+		mysqli_free_result ($r);
+    }
+  } else {
+		echo '<p class="bg-danger">There are currently no schedules available to choose from</p>';
+	}
 
-    GROUP BY schedule_type;
-;
-    echo '<option value = $schedulename>$schedulename</option>';
-  }
+?>
 <h1>Form: Enter the date and selected schedule</h1>
 <form action = "handlermeetings.php" method="POST">
 <!--Meeting Date: <br>
