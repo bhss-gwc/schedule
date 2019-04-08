@@ -69,7 +69,7 @@ echo '</select>';
 
 echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing $dbc-->
   $q = "SELECT schedule_type FROM schedule_change GROUP BY schedule_type";
-  $r = @mysqli_query ($dbc, $q);
+  $r = @mysqli_query ($dbconnector, $q);
   if($r){
     if(mysqli_num_rows($r) > 0){
       echo '<select>';
