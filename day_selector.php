@@ -22,6 +22,11 @@ $dbconnector = mysqli_connect($servername, $username, $password, $dbname);
 $currentmonth = 1;//add php queries
 $currentdate = 1;
 
+?>
+
+<h2>Select the date and month you are setting the schedule for.</h2>
+
+<?php
 echo '<SELECT name = "month">';
   if($currentmonth <= 1){
     echo '<option value = "01">Jan</option>';
@@ -66,7 +71,11 @@ echo '<SELECT name = "date">';
     echo '<option value = "' . $i . '">' . $i . '</option>';
   }
 echo '</select>';
+?>
 
+<h2>Choose which schedule to apply for that day</h2>
+
+<?php
 echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing $dbc-->
   $q = "SELECT schedule_type FROM schedule_change GROUP BY schedule_type";
   $r = @mysqli_query ($dbconnector, $q);
@@ -84,7 +93,7 @@ echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing 
 	}
 
 ?>
-<h1>Form: Enter the date and selected schedule</h1>
+<h2>If you wish to create an entirely new schedule, click the button.</h2>
 <form action = "handlermeetings.php" method="POST">
 <!--Meeting Date: <br>
 <input type = "text" name = "datemonth"/><br><br>
