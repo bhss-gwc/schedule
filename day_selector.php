@@ -19,8 +19,8 @@ $password = "";
 $dbname = "bhss_schedule";
 $dbconnector = mysqli_connect($servername, $username, $password, $dbname);
 
-$currentmonth = 1;//add php queries
-$currentdate = 1;
+$currentmonth = date("n");
+$currentdate = date("j");
 
 ?>
 
