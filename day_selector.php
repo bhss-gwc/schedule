@@ -121,7 +121,8 @@ $currentdate = date("j");
 
 ?>
 
-<h2>Select the date and month you are setting the schedule for.</h2>
+<h2>Submit a Schedule Change</h2>
+Select the month and day you are setting the schedule for:
 
 <?php
   echo '<SELECT name = "month">';
@@ -166,7 +167,8 @@ echo '<SELECT name = "date">';
 echo '</select>';
 ?>
 
-<h2>Choose which schedule to apply for that day</h2>
+<br><br>
+Choose which schedule to apply for that day:
 
 <?php
 echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing $dbc-->
@@ -184,9 +186,9 @@ echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing 
   } else {
 		echo '<p class="bg-danger">There are currently no schedules available to choose from</p>';
 	}
-
 ?>
-<h2>If you wish to create an entirely new schedule, click the button.</h2>
+
+<h3>If you wish to create an entirely new schedule, click the button.</h3>
 <form action = "handlermeetings.php" method="POST">
 <!--Meeting Date: <br>
 <input type = "text" name = "datemonth"/><br><br>
@@ -197,7 +199,6 @@ echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing 
 <select>
   <option name = "">Regular</option>
 </option>
-
 
 <input type = "submit" value = "submit" /><br>
 
