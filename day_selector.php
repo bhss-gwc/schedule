@@ -27,7 +27,22 @@ $currentdate = date("j");
 <h2>Select the date and month you are setting the schedule for.</h2>
 
 <?php
-echo '<SELECT name = "month">';
+  echo '<SELECT name = "month">';
+  if($currentmonth <= 8 and $currentmonth > 5){
+    echo '<option value = "08">Aug</option>';
+  }
+  if($currentmonth <= 9 and $currentmonth > 5){
+    echo '<option value = "09">Sep</option>';
+  }
+  if($currentmonth <= 10 and $currentmonth > 5){
+    echo '<option value = "10">Oct</option>';
+  }
+  if($currentmonth <= 11 and $currentmonth > 5){
+    echo '<option value = "11">Nov</option>';
+  }
+  if($currentmonth <= 12 and $currentmonth > 5){
+    echo '<option value = "12">Dec</option>';
+  }
   if($currentmonth <= 1){
     echo '<option value = "01">Jan</option>';
   }
@@ -42,27 +57,8 @@ echo '<SELECT name = "month">';
   }
   if($currentmonth <= 5){
     echo '<option value = "05">May</option>';
-  }if($currentmonth <= 6){
-    echo '<option value = "06">Jun</option>';
   }
-  if($currentmonth <= 7){
-    echo '<option value = "07">Jul</option>';
-  }
-  if($currentmonth <= 8){
-    echo '<option value = "08">Aug</option>';
-  }
-  if($currentmonth <= 9){
-    echo '<option value = "09">Sep</option>';
-  }
-  if($currentmonth <= 10){
-    echo '<option value = "10">Oct</option>';
-  }
-  if($currentmonth <= 11){
-    echo '<option value = "11">Nov</option>';
-  }
-  if($currentmonth <= 12){
-    echo '<option value = "12">Dec</option>';
-  }
+
 
 echo '</select>';
 
