@@ -84,6 +84,8 @@ font-family: Arial, Helvetica, sans-serif;
       <a href="introduce.php">Introduce Your Club</a>
       <a href="displaymeetings.php"> Club Meetings</a>
       <a href="displayclubinfo.php">Club Info</a>
+      <a href="bell_schedule.html">Regular Bell Schedule</a>
+      <a href="displaybellschedule.php">Today's Bell Schedule</a>
       <div class="dropdown">
       <button class="dropbtn" onclick="myFunction()">Dropdown
         <i class="fa fa-caret-down"></i>
@@ -119,7 +121,13 @@ $query = "SELECT * FROM meetings ORDER by meetingdate asc";
 $result = mysqli_query($dbconnector, $query);
 
 if (mysqli_num_rows($result) > 0) {
-  echo "<table border='1' width='50%' bgcolor='#D2B4DE'><tr><th style=\"font-family: Arial, Helvetica, sans-serif;\">Meeting Date</th><th style=\"font-family: Arial, Helvetica, sans-serif;\">Start Time</th><th style=\"font-family: Arial, Helvetica, sans-serif;\">Stop Time</th><th style=\"font-family: Arial, Helvetica, sans-serif;\">Location</th><th style=\"font-family: Arial, Helvetica, sans-serif;\">Club Name</th></tr>";
+  echo "<table border='1' width='50%' bgcolor='#D2B4DE'><tr>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Meeting Date</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Start Time</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Stop Time</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Location</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Club Name</th>
+  </tr>";
   while ($row = mysqli_fetch_assoc($result)) {
     if($row['meetingdate'] == '') continue;
     echo "<tr>

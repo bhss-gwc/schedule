@@ -84,7 +84,8 @@
         <a href="introduce.php">Introduce Your Club</a>
         <a href="displaymeetings.php"> Club Meetings</a>
         <a href="displayclubinfo.php">Club Info</a>
-        <a href="schedulechange.php">Schedule Changes</a>
+        <a href="bell_schedule.html">Regular Bell Schedule</a>
+        <a href="displaybellschedule.php">Today's Bell Schedule</a>
         <div class="dropdown">
         <button class="dropbtn" onclick="myFunction()">Dropdown
           <i class="fa fa-caret-down"></i>
@@ -104,6 +105,9 @@
 
 <?php
 
+// comment
+
+//$clubname = $_GET['clubname'];
 
 // connect to database
 $servername = "localhost";
@@ -117,13 +121,23 @@ if (!$dbconnector) {
     die("DB Connection Error" . mysqli_connect_error());
 }
 
-$query = "SELECT * FROM introduce_responses WHERE clubname = \"$clubname\" ";
+$query = "SELECT * FROM introduce_responses";
 $result = mysqli_query($dbconnector, $query);
 
 if (mysqli_num_rows($result) > 0) {
-  echo "<table border='1' bgcolor = '#D2B4DE'><tr><th>Club Name</th><th>Club Sponsor</th><th>Club Sponsor Email</th><th>Location</th></tr>";
+  echo "<table border='1' width='50%' bgcolor = '#D2B4DE'><tr>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Club Name</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Club Sponsor</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Club Sponsor Email</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Location</th>
+  </tr>";
   while ($row = mysqli_fetch_assoc($result)) {
-    echo "<tr><td>{$row['clubname']}</td><td>{$row['clubsponsorname']}</td><td>{$row['clubsponsoremail']}</td><td>{$row['clubmeetinglocation']}</td></tr>";
+    echo "<tr>
+    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['clubname']}</td>
+    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['clubsponsorname']}</td>
+    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['clubsponsoremail']}</td>
+    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['clubmeetinglocation']}</td>
+    </tr>";
   }
   echo "</table>";
 }
