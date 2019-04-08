@@ -13,6 +13,7 @@
 
 
 //connect to database
+//MAKE THE FILE PRETTIER
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -72,6 +73,7 @@ echo '</select>';
 <h2>Choose which schedule to apply for that day</h2>
 
 <?php
+
 echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing $dbc-->
   $q = "SELECT schedule_type FROM schedule_change GROUP BY schedule_type";
   $r = @mysqli_query ($dbconnector, $q);
@@ -89,22 +91,20 @@ echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing 
 	}
 
 ?>
-<h2>If you wish to create an entirely new schedule, click the button.</h2>
+<br>
 <form action = "handlermeetings.php" method="POST">
-<!--Meeting Date: <br>
-<input type = "text" name = "datemonth"/><br><br>
-<input type = "text" name = "datemonth"/><br><br></!-->
+  <?php echo "If you want to create an entirely new schedule, click the button.";?>
 <input type="radio" name="newornot"/>
-<?php if (isset($newornot)) echo "checked";?>
-
-<select>
-  <option name = "">Regular</option>
-</option>
+<?php
+  if (isset($newornot)) echo "checked";
+  ?>
 
 
+
+<br> Submit when finished.
 <input type = "submit" value = "submit" /><br>
+</form>
 
- 		</form>
     <?php
     if(isset($newornot)){
     $cookie_name = "newschedule";
