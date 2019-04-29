@@ -124,6 +124,7 @@ $currentdate = date("j");
 
 <h2>Submit a Schedule Change</h2>
 Select the month and day you are setting the schedule for:
+<form action = "handlermeetings.php" method="POST">
 
 <?php
   echo '<SELECT name = "month">';
@@ -166,19 +167,20 @@ echo '<SELECT name = "date">';
     echo '<option value = "' . $i . '">' . $i . '</option>';
   }
 echo '</select>';
-?>
 
-<br><br>
-Choose which schedule to apply for that day:
 
-<?php
+echo '<p>
+  Choose which schedule to apply for that day:
+</p>';
 
-echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing $dbc-->
+
+#check if this database check should be moved to handler
+
   $q = "SELECT schedule_type FROM schedule_change GROUP BY schedule_type";
   $r = @mysqli_query ($dbconnector, $q);
   if($r){
     if(mysqli_num_rows($r) > 0){
-      echo '<select>';
+      echo '<SELECT name = "scheduletype">';
 		while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 			echo "<option value={$row['name']}>{$row['name']}</option>";
 		}
@@ -188,15 +190,12 @@ echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing 
   } else {
 		echo '<p class="bg-danger">There are currently no schedules available to choose from</p>';
 	}
-?>
 
-?>
-<br>
-<form action = "handlermeetings.php" method="POST">
-  <?php echo "If you want to create an entirely new schedule, click the button.";?>
-<input type="radio" name="newornot"/>
-<?php
-  if (isset($newornot)) echo "checked";
+
+echo '<p>If you want to create an entirely new schedule, click the button.</p>';
+
+  echo '<input type="radio" name="newornot"/>';
+
   ?>
 
 
@@ -205,14 +204,5 @@ echo '<SELECT name = "scheduletype">';//finish doing this select query/! defing 
 <input type = "submit" value = "submit" /><br>
 </form>
 
-    <?php
-    if(isset($newornot)){
-    $cookie_name = "newschedule";
-    $cookie_value = "yes";
-    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-
-    header( 'Location: http://localhost/schedule/schedulechange.php' );
-    }
-    ?>
 </body>
 </html>
