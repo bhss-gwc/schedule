@@ -110,6 +110,7 @@ font-family: Arial, Helvetica, sans-serif;
 
 
 //connect to database
+
 $servername = "localhost";
 $username = "root";
 $password = "";
