@@ -85,7 +85,7 @@
         <a href="introduce.php">Introduce Your Club</a>
         <a href="displaymeetings.php"> Club Meetings</a>
         <a href="displayclubinfo.php">Club Info</a>
-        <a href="bell_schedule.html">Different Bell Schedules</a>
+        <a href="bell_schedule.php">Different Bell Schedules</a>
         <a href="displaybellschedule.php">Today's Bell Schedule</a>
         <a href="day_selector.php">Day Selector</a>
         <div class="dropdown">
@@ -100,50 +100,72 @@
         </div>
       </div>
 
+<?php
+
+//connect to database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "bhss_schedule";
+$dbconnector = mysqli_connect($servername, $username, $password, $dbname);
+
+$currentmonth = date("n");
+$currentdate = date("j");
+
+?>
+<h2>Regular Bell Schedule</h2><br>
+
+Select a month and date to see that day's bell schedule:
+
+<?php
+
+//$currentmonth = 1;//use php query thing
+
+echo '<SELECT name = "month">';
+if($currentmonth <= 8 and $currentmonth > 5){
+  echo '<option value = "08">Aug</option>';
+}
+if($currentmonth <= 9 and $currentmonth > 5){
+  echo '<option value = "09">Sep</option>';
+}
+if($currentmonth <= 10 and $currentmonth > 5){
+  echo '<option value = "10">Oct</option>';
+}
+if($currentmonth <= 11 and $currentmonth > 5){
+  echo '<option value = "11">Nov</option>';
+}
+if($currentmonth <= 12 and $currentmonth > 5){
+  echo '<option value = "12">Dec</option>';
+}
+if($currentmonth <= 1){
+  echo '<option value = "01">Jan</option>';
+}
+if($currentmonth <= 2){
+  echo '<option value = "02">Feb</option>';
+}
+if($currentmonth <= 3){
+  echo '<option value = "03">Mar</option>';
+}
+if($currentmonth <= 4){
+  echo '<option value = "04">Apr</option>';
+}
+if($currentmonth <= 5){
+  echo '<option value = "05">May</option>';
+}
 
 
-$currentmonth = 1;//use php query thing
+echo '</select>';
 
-echo <SELECT name = "month">
-  if($currentmonth <= 1){
-    echo '<option value = "01">Jan</option>';
+echo '<SELECT name = "date">';
+  for ($i = 1; $i < 32; $i++){
+    echo '<option value = "' . $i . '">' . $i . '</option>';
   }
-  if($currentmonth <= 2){
-    echo '<option value = "02">Feb</option>';
-  }
-  if($currentmonth <= 3){
-    echo '<option value = "03">Mar</option>';
-  }
-  if($currentmonth <= 4){
-    echo '<option value = "04">Apr</option>';
-  }
-  if($currentmonth <= 5){
-    echo '<option value = "05">May</option>';
-  }if($currentmonth <= 6){
-    echo '<option value = "06">Jun</option>';
-  }
-  if($currentmonth <= 7){
-    echo '<option value = "07">Jul</option>';
-  }
-  if($currentmonth <= 8){
-    echo '<option value = "08">Aug</option>';
-  }
-  if($currentmonth <= 9){
-    echo '<option value = "09">Sep</option>';
-  }
-  if($currentmonth <= 10){
-    echo '<option value = "10">Oct</option>';
-  }
-  if($currentmonth <= 11){
-    echo '<option value = "11">Nov</option>';
-  }
-  if($currentmonth <= 12){
-    echo '<option value = "12">Dec</option>';
-  }
+echo '</select>';
+
+?>
 
 
 
-  <h2>Regular Bell Schedule</h2><br>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
