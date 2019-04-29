@@ -84,7 +84,7 @@
 	      <a href="introduce.php">Introduce Your Club</a>
 	      <a href="displaymeetings.php"> Club Meetings</a>
 	      <a href="displayclubinfo.php">Club Info</a>
-				<a href="bell_schedule.html">Different Bell Schedules</a>
+				<a href="bell_schedule.php">Different Bell Schedules</a>
 	      <a href="displaybellschedule.php">Today's Bell Schedule</a>
 				<a href="day_selector.php">Day Selector</a>
 	      <div class="dropdown">
