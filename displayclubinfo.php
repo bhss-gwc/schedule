@@ -86,7 +86,7 @@
         <a href="displayclubinfo.php">Club Info</a>
         <a href="bell_schedule.php">Different Bell Schedules</a>
         <a href="displaybellschedule.php">Today's Bell Schedule</a>
-        <a href="day_selector.php">Day Selector</a>
+        <a href="day_selector.php">Submit a Schedule Change</a>
         <div class="dropdown">
         <button class="dropbtn" onclick="myFunction()">Dropdown
           <i class="fa fa-caret-down"></i>
