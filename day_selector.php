@@ -188,7 +188,7 @@ echo '<p>
 		mysqli_free_result ($r);
     }
   } else {
-		echo '<p class="bg-danger">There are currently no schedules available to choose from</p>';
+		echo '<p class="bg-danger">There are currently no schedules available to choose from.</p>';
 	}
 
 
@@ -200,7 +200,7 @@ echo '<p>If you want to create an entirely new schedule, click the button.</p>';
 
 
 
-<br> Submit when finished.
+<br><br>Submit when finished.<br><br>
 <input type = "submit" value = "submit" /><br>
 </form>
 

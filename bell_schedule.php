@@ -115,7 +115,7 @@ $currentdate = date("j");
 ?>
 <h2>Regular Bell Schedule</h2><br>
 
-Select a month and date to see that day's bell schedule:
+Select a month and day to see that date's bell schedule:
 
 <?php
 
