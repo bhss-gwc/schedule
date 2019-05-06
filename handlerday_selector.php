@@ -3,13 +3,13 @@
 <head>
 </head>
 <body>
-
+<?php
 $newornot = $_POST['newornot'];
 $month = $_POST['month'];
 $date = $_POST['date'];
 $type = $_POST['scheduletype'];
 
-<?php
+
 //connect to database
 //MAKE THE FILE PRETTIER
 $servername = "localhost";
@@ -19,6 +19,7 @@ $dbname = "bhss_schedule";
 $dbconnector = mysqli_connect($servername, $username, $password, $dbname);
 
   if(isset($newornot)){
+  echo '<p class="bg-danger">You want to create a new schedule.</p>';
   $cookie_name = "newschedule";
   $cookie_value = "yes";
   setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
