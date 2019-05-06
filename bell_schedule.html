@@ -85,24 +85,24 @@
         <a href="introduce.php">Introduce Your Club</a>
         <a href="displaymeetings.php"> Club Meetings</a>
         <a href="displayclubinfo.php">Club Info</a>
+<<<<<<< Updated upstream
         <a href="bell_schedule.php">Different Bell Schedules</a>
+=======
+        <a href="bell_schedule.html">Bell Schedule</a>
+>>>>>>> Stashed changes
         <a href="displaybellschedule.php">Today's Bell Schedule</a>
         <a href="day_selector.php">Day Selector</a>
-        <div class="dropdown">
-        <button class="dropbtn" onclick="myFunction()">Dropdown
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content" id="myDropdown">
-          <a href="http://www.bloomingtonsouth.org/plus/login.php">Panther Plus</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
         </div>
         </div>
       </div>
 
+<<<<<<< Updated upstream
 
 
 $currentmonth = 1;//use php query thing
+=======
+$currentmonth = 1;//use php query thing//
+>>>>>>> Stashed changes
 
 echo <SELECT name = "month">
   if($currentmonth <= 1){
@@ -141,9 +141,79 @@ echo <SELECT name = "month">
     echo '<option value = "12">Dec</option>';
   }
 
+<<<<<<< Updated upstream
 
 
   <h2>Regular Bell Schedule</h2><br>
+=======
+</select>
+<form>
+  <fieldset class="date">
+    <legend>Select A Date</legend>
+    <label for="month_start">Month</label>
+    <select id="month_start"
+            name="month_start" />
+      <option>January</option>
+      <option>February</option>
+      <option>March</option>
+      <option>April</option>
+      <option>May</option>
+      <option>June</option>
+      <option>July</option>
+      <option>August</option>
+      <option>September</option>
+      <option>October</option>
+      <option>November</option>
+      <option>December</option>
+    </select> -
+    <label for="day_start">Day</label>
+    <select id="day_start"
+            name="day_start" />
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+      <option>13</option>
+      <option>14</option>
+      <option>15</option>
+      <option>16</option>
+      <option>17</option>
+      <option>18</option>
+      <option>19</option>
+      <option>20</option>
+      <option>21</option>
+      <option>22</option>
+      <option>23</option>
+      <option>24</option>
+      <option>25</option>
+      <option>26</option>
+      <option>27</option>
+      <option>28</option>
+      <option>29</option>
+      <option>30</option>
+      <option>31</option>
+    </select> -
+    <label for="year_start">Year</label>
+    <select id="year_start"
+           name="year_start" />
+      <option>2019</option>
+      <option>2020</option>
+    </select>
+    <span class="inst">(Month-Day-Year)</span>
+  </fieldset>
+  <input type="submit" value="Submit">
+</form>
+
+  <h2>Bell Schedule</h2><br>
+>>>>>>> Stashed changes
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
