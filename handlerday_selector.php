@@ -25,13 +25,13 @@ $dbconnector = mysqli_connect($servername, $username, $password, $dbname);
   header( 'Location: http://localhost/schedule/schedulechange.php' );
   }
   if(!isset($newornot)){
-    $q = "SELECT schedule_type FROM weird_schedules WHERE month = $month AND day = $date";
+    $q = "SELECT schedule_type FROM weirdschedules WHERE month = $month AND day = $date";
     $r = @mysqli_query ($dbconnector, $q);
     if($r){
       if(mysqli_num_rows($r) > 0){
-        $newQ = "UPDATE weird_schedules SET schedule_type = $type WHERE month = $month AND day = $date";
+        $newQ = "UPDATE weirdschedules SET schedule_type = $type WHERE month = $month AND day = $date";
       }else{
-        $newQ = "INSERT INTO weird_schedules (schedule_type, month, day) VALUES ($type, $month, $day)";
+        $newQ = "INSERT INTO weirdschedules (schedule_type, month, day) VALUES ($type, $month, $day)";
       }
     }
     $r = @mysqli_query ($dbconnector, $q);
