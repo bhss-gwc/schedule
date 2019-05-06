@@ -124,7 +124,7 @@ $currentdate = date("j");
 
 <h2>Submit a Schedule Change</h2>
 Select the month and day you are setting the schedule for:
-<form action = "handlermeetings.php" method="POST">
+<form action = "handlerday_selector.php" method="POST">
 
 <?php
   echo '<SELECT name = "month">';
