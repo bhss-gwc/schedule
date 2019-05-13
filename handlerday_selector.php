@@ -9,7 +9,7 @@ $month = $_POST['month'];
 $date = $_POST['date'];
 $type = $_POST['scheduletype'];
 
-
+//UPDATE SCHEDULE_CHANGE SO THAT IT ASKS FOR A DATE AND A MONTH INSTEAD OF A PHP FORMATTED DATE!!!!
 //connect to database
 //MAKE THE FILE PRETTIER
 $servername = "localhost";
