@@ -75,8 +75,8 @@ $username = "root";
 $password = "";
 $dbname = "bhss_schedule";
 $dbconnector = mysqli_connect($servername, $username, $password, $dbname);
-$numPeriods = 6;
 
+#finish making the for loop that makes as many entries as there are periods in the schedule
 if(!$dbconnector){
 die("DB Connection Error.". mysqli_connect_error());
 } else {
@@ -85,7 +85,6 @@ die("DB Connection Error.". mysqli_connect_error());
 $errorInserting = false;
 for($i = 0; $i < $numPeriods; $i = $i + 1){
   $query = "INSERT INTO schedulechange (schedule_type, period, start, stop) VALUES ('reg', 'pp', '10:15:00', '11:00:00')"
-  $query = "INSERT INTO schedulechange (dateofschedulechange,1stperiod,2ndperiod,3rdperiod,4thperiod,5thperiod)
   VALUES ('{$_POST['dateofschedulechange']}', '{$_POST['1stperiod']}', '{$_POST['2ndperiod']}', '{$_POST['3rdperiod']}', '{$_POST['4thperiod']}', '{$POST['5thperiod']}')";
 
 }
