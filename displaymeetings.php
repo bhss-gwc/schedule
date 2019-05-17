@@ -9,6 +9,7 @@ font-family: Arial, Helvetica, sans-serif;
 }
 h2 {
 font-family: Arial, Helvetica, sans-serif;
+font-weight: normal;
 }
 </style>
 
