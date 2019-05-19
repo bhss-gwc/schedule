@@ -91,7 +91,7 @@
         </div>
       </div>
 
-  <h2>Today's Bell Schedule</h2>
+  <h2>Weird Bell Schedules</h2>
 </head>
 
 <body>
@@ -115,23 +115,21 @@ if (!$dbconnector) {
 }
 
 
-
-
-$query = "SELECT * FROM schedulechange WHERE schedule_type = 'regular'";
+$query = "SELECT * FROM weirdschedules ORDER by day asc";
 $result = mysqli_query($dbconnector, $query);
 //$str = substr($result, 0, 5);
 
+
 if (mysqli_num_rows($result) > 0) {
-  echo "<table border='1' width='50%' bgcolor = '#D2B4DE'><tr>
-  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Period</th>
-  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Start</th>
-  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Stop</th>
+  echo "<table border='1' width='25%' bgcolor = '#D2B4DE'><tr>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Date</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Event</th>
   </tr>";
   while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr>
-    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['period']}</td>
-    <td style=\"font-family: Arial, Helvetica, sans-serif;\">".substr($row['start'],0,5)."</td>
-    <td style=\"font-family: Arial, Helvetica, sans-serif;\">".substr($row['stop'],0,5)."</td>
+    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['month']} {$row['day']}</td>
+    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['schedule_type']}</td>
+    <td style=\"font-family: Arial, Helvetica, sans-serif;\"><a href=\"displayclubinfo.php?club={$row['clubname']}\">{$row['clubname']}</a></td>
     </tr>";
   }
   echo "</table>";
