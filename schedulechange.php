@@ -101,7 +101,7 @@
 
 <body>
 
-<h1>Form: Schedule Changes</h1>
+<h1>Form: Schedule Changes</h1><br>
 <form action = "handlerschedulechange.php" method="POST">
 
   Select the month and day you are setting the schedule for:
@@ -156,6 +156,9 @@
 
   ?>
 
+Name of schedule type:
+<input type = "text" name = "nameofscheduletype"/><br>
+Date of schedule change: <br>
 <input type = "text" name = "dateofschedulechange"/><br><br>
 1st period: (example: 8-8:50 am)<br>
 <input type = "text" name = "1stperiod"/><br><br>

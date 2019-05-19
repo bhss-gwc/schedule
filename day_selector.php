@@ -184,7 +184,8 @@ echo '<p>
 	}
 
 
-echo '<p>If you want to create an entirely new schedule, click the button.</p>';
+echo '<p>If you want to create an entirely new schedule, click the button.<br>
+(If this is clicked, there is no need to fill out any of the other data)</p>';
 
   echo '<input type="radio" name="newornot"/>';
 
