@@ -100,7 +100,7 @@
 
 // comment
 
-//$clubname = $_GET['clubname'];
+$schedule_type = $_GET['schedule_type'];
 
 // connect to database
 $servername = "localhost";
@@ -114,7 +114,7 @@ if (!$dbconnector) {
     die("DB Connection Error" . mysqli_connect_error());
 }
 
-$query = "SELECT * FROM schedulechange";
+$query = "SELECT * FROM schedulechange WHERE schedule_type = '". $schedule_type ."'";
 $result = mysqli_query($dbconnector, $query);
 
 if (mysqli_num_rows($result) > 0) {

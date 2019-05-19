@@ -100,7 +100,7 @@
 
 // comment
 
-//$clubname = $_GET['clubname'];
+$clubname = $_GET['club'];
 
 // connect to database
 $servername = "localhost";
@@ -114,7 +114,7 @@ if (!$dbconnector) {
     die("DB Connection Error" . mysqli_connect_error());
 }
 
-$query = "SELECT * FROM introduce_responses";
+$query = "SELECT * FROM introduce_responses WHERE clubname ='". $clubname ."'";
 $result = mysqli_query($dbconnector, $query);
 
 if (mysqli_num_rows($result) > 0) {
