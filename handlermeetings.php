@@ -5,6 +5,14 @@
 <body>
 <?php
 
+if(!empty($_POST['selectschedule'])){
+  header( 'Location: http://localhost/submitschedulechange.php' );
+}
+
+if(!empty($_POST['createschedule'])){
+  header( 'Location: http://localhost/submitnewschedule.php' );
+}
+
 $error=array();
 if(empty($_POST['meetingdate'])){
   $error[] = 'Please enter Meeting Date';
