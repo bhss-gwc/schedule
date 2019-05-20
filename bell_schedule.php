@@ -107,57 +107,6 @@ $currentdate = date("j");
 ?>
 <h2>Regular Bell Schedule</h2><br>
 
-Select a month and day to see that date's bell schedule:
-
-<?php
-
-//$currentmonth = 1;//use php query thing
-
-echo '<SELECT name = "month">';
-if($currentmonth <= 8 and $currentmonth > 5){
-  echo '<option value = "08">Aug</option>';
-}
-if($currentmonth <= 9 and $currentmonth > 5){
-  echo '<option value = "09">Sep</option>';
-}
-if($currentmonth <= 10 and $currentmonth > 5){
-  echo '<option value = "10">Oct</option>';
-}
-if($currentmonth <= 11 and $currentmonth > 5){
-  echo '<option value = "11">Nov</option>';
-}
-if($currentmonth <= 12 and $currentmonth > 5){
-  echo '<option value = "12">Dec</option>';
-}
-if($currentmonth <= 1){
-  echo '<option value = "01">Jan</option>';
-}
-if($currentmonth <= 2){
-  echo '<option value = "02">Feb</option>';
-}
-if($currentmonth <= 3){
-  echo '<option value = "03">Mar</option>';
-}
-if($currentmonth <= 4){
-  echo '<option value = "04">Apr</option>';
-}
-if($currentmonth <= 5){
-  echo '<option value = "05">May</option>';
-}
-
-
-echo '</select>';
-
-echo '<SELECT name = "date">';
-  for ($i = 1; $i < 32; $i++){
-    echo '<option value = "' . $i . '">' . $i . '</option>';
-  }
-echo '</select>';
-
-?>
-
-
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">

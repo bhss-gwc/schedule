@@ -9,7 +9,6 @@
   }
   h2 {
   font-family: Arial, Helvetica, sans-serif;
-  font-weight:normal;
   }
   </style>
 
@@ -78,66 +77,95 @@
         display: block;
       }
       </style>
-      </head>
-      <body>
+</head>
+
+<body>
 
       <div class="navbar">
         <a href="introduce.php">Introduce Your Club</a>
         <a href="displaymeetings.php"> Club Meetings</a>
         <a href="displayclubinfo.php">Club Info</a>
-        <a href="bell_schedule.php">Different Bell Schedules</a>
-        <a href="displaybellschedule.php">Today's Bell Schedule</a>
-        <a href="day_selector.php">Submit a Schedule Change</a>
+        <a href="displayregularbellschedule.php">Regular Bell Schedule</a>
+        <a href="displayweirdscheduledates.php">Weird Bell Schedules</a>
+        <a href="submitschedulechange.php">Submit a Schedule Change</a>
         </div>
         </div>
       </div>
 
-  <h2>Weird Bell Schedules</h2>
-</head>
-
-<body>
-
 <?php
 
-// comment
-
-//$clubname = $_GET['clubname'];
-
-// connect to database
+//connect to database
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "bhss_schedule";
-
 $dbconnector = mysqli_connect($servername, $username, $password, $dbname);
 
-if (!$dbconnector) {
-    die("DB Connection Error" . mysqli_connect_error());
-}
-
-
-$query = "SELECT * FROM weirdschedules ORDER by day asc";
-$result = mysqli_query($dbconnector, $query);
-//$str = substr($result, 0, 5);
-
-
-if (mysqli_num_rows($result) > 0) {
-  echo "<table border='1' width='25%' bgcolor = '#D2B4DE'><tr>
-  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Date</th>
-  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Event</th>
-  </tr>";
-  while ($row = mysqli_fetch_assoc($result)) {
-    echo "<tr>
-    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['month']} {$row['day']}</td>
-    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['schedule_type']}</td>
-    <td style=\"font-family: Arial, Helvetica, sans-serif;\"><a href=\"displayclubinfo.php?club={$row['clubname']}\">{$row['clubname']}</a></td>
-    </tr>";
-  }
-  echo "</table>";
-}
-
+$currentmonth = date("n");
+$currentdate = date("j");
 
 ?>
+<h2>Regular Bell Schedule</h2><br>
 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
 
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Period</th>
+        <th></th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>1</th>
+        <td></td>
+        <td>8:00 - 9:05</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td></td>
+        <td>9:10 - 10:10</td>
+      </tr>
+      <tr>
+      	<th>SRT/P+</th>
+        <td></td>
+        <td>10:15 - 11:00</td>
+      </tr>
+      <tr>
+        <th rowspan="3">3</th>
+        <td>Lunch A</td>
+        <td>11:05 - 11:35</td>
+      </tr>
+      <tr>
+      	<td>Lunch B</td>
+        <td>11:40 - 12:10</td>
+      </tr>
+      <tr>
+      	<td>Lunch C</td>
+        <td>12:15 - 12:45</td>
+      </tr>
+      <tr>
+      	<th>4</th>
+        <td></td>
+        <td>12:50 - 1:50</td>
+      </tr>
+      <tr>
+      	<th>5</th>
+        <td></td>
+        <td>1:55 - 2:55</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
 </html>

@@ -90,6 +90,9 @@
         <a href="introduce.php">Introduce Your Club</a>
         <a href="displaymeetings.php"> Club Meetings</a>
         <a href="displayclubinfo.php">Club Info</a>
+        <a href="displayregularbellschedule.php">Regular Bell Schedule</a>
+        <a href="displayweirdscheduledates.php">Weird Bell Schedules</a>
+        <a href="submitschedulechange.php">Submit a Schedule Change</a>
         <a href="schedulechange.php">Schedule Changes</a>
         </div>
         </div>

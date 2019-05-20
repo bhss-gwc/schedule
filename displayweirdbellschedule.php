@@ -9,7 +9,6 @@
   }
   h2 {
   font-family: Arial, Helvetica, sans-serif;
-  font-weight:normal;
   }
   </style>
 
@@ -85,14 +84,14 @@
         <a href="introduce.php">Introduce Your Club</a>
         <a href="displaymeetings.php"> Club Meetings</a>
         <a href="displayclubinfo.php">Club Info</a>
-        <a href="bell_schedule.php">Different Bell Schedules</a>
-        <a href="displaybellschedule.php">Today's Bell Schedule</a>
-        <a href="day_selector.php">Submit a Schedule Change</a>
+        <a href="displayregularbellschedule.php">Regular Bell Schedule</a>
+        <a href="displayweirdscheduledates.php">Weird Bell Schedules</a>
+        <a href="submitschedulechange.php">Submit a Schedule Change</a>
         </div>
         </div>
       </div>
 
-  <h2>Weird Bell Schedules</h2>
+  <h2>Weird Bell Schedule</h2>
 </head>
 
 <body>
@@ -101,7 +100,7 @@
 
 // comment
 
-//$clubname = $_GET['clubname'];
+$schedule_type = $_GET['schedule_type'];
 
 // connect to database
 $servername = "localhost";
@@ -115,22 +114,20 @@ if (!$dbconnector) {
     die("DB Connection Error" . mysqli_connect_error());
 }
 
-
-$query = "SELECT * FROM weirdschedules ORDER by day asc";
+$query = "SELECT * FROM schedulechange WHERE schedule_type = '". $schedule_type ."'";
 $result = mysqli_query($dbconnector, $query);
-//$str = substr($result, 0, 5);
-
 
 if (mysqli_num_rows($result) > 0) {
   echo "<table border='1' width='25%' bgcolor = '#D2B4DE'><tr>
-  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Date</th>
-  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Event</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Period</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Start Time</th>
+  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Stop Time</th>
   </tr>";
   while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr>
-    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['month']} {$row['day']}</td>
-    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['schedule_type']}</td>
-    <td style=\"font-family: Arial, Helvetica, sans-serif;\"><a href=\"displayclubinfo.php?club={$row['clubname']}\">{$row['clubname']}</a></td>
+    <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['period']}</td>
+    <td style=\"font-family: Arial, Helvetica, sans-serif;\">".substr($row['start'],0,5)."</td>
+    <td style=\"font-family: Arial, Helvetica, sans-serif;\">".substr($row['stop'],0,5)."</td>
     </tr>";
   }
   echo "</table>";
@@ -139,5 +136,5 @@ if (mysqli_num_rows($result) > 0) {
 
 ?>
 
-
+</body>
 </html>

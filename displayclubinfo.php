@@ -86,9 +86,9 @@
         <a href="introduce.php">Introduce Your Club</a>
         <a href="displaymeetings.php"> Club Meetings</a>
         <a href="displayclubinfo.php">Club Info</a>
-        <a href="bell_schedule.php">Different Bell Schedules</a>
-        <a href="displaybellschedule.php">Today's Bell Schedule</a>
-        <a href="day_selector.php">Submit a Schedule Change</a>
+        <a href="displayregularbellschedule.php">Regular Bell Schedule</a>
+        <a href="displayweirdscheduledates.php">Weird Bell Schedules</a>
+        <a href="submitschedulechange.php">Submit a Schedule Change</a>
         </div>
         </div>
       </div>
@@ -102,7 +102,7 @@
 
 // comment
 
-//$clubname = $_GET['clubname'];
+$clubname = $_GET['club'];
 
 // connect to database
 $servername = "localhost";
@@ -116,7 +116,7 @@ if (!$dbconnector) {
     die("DB Connection Error" . mysqli_connect_error());
 }
 
-$query = "SELECT * FROM introduce_responses";
+$query = "SELECT * FROM introduce_responses WHERE clubname ='". $clubname ."'";
 $result = mysqli_query($dbconnector, $query);
 
 if (mysqli_num_rows($result) > 0) {
