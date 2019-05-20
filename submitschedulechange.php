@@ -20,7 +20,9 @@ $currentdate = date("j");
 ?>
 
 <h2>Submit a Schedule Change</h2>
-Select the month and day you are setting the schedule for:
+This form is for adding a weird schedule to a certain day.<br><br><br>
+
+1. Select the month and day you are setting the schedule for:<br><br>
 <form action = "handlersubmitschedulechange.php" method="POST">
 
 <?php
@@ -67,13 +69,13 @@ echo '</select>';
 
 
 echo '<p>
-  Choose which schedule to apply for that day:
+  2. Choose which schedule to apply for that day:
 </p>';
 
 
 #check if this database check should be moved to handler
   $isEmpty  = true;
-  $q = "SELECT schedule_type FROM schedulechange GROUP BY schedule_type";
+  $q = "SELECT schedule_type FROM schedulechange WHERE schedule_type != 'regular' GROUP BY schedule_type";
   $r = @mysqli_query ($dbconnector, $q);
   if($r){
     if(mysqli_num_rows($r) > 0){
@@ -94,7 +96,7 @@ echo '<p>
 
 
 
-<br><br>Submit when finished.<br><br>
+<br><br>3. Submit when finished:
 <input type = "submit" value = "submit" /><br>
 </form>
 

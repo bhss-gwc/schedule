@@ -1,24 +1,27 @@
 <?php
+include("includes/header.inc");
+
+
 $error=array();
 if(empty($_POST['month'])){
-  $error[] = 'Please enter Club Name';
+  $error[] = 'Please enter Month';
 }else{
   $month = $_POST['month'];
 }
 if(empty($_POST['date'])){
-  $error[] = 'Please enter Club Password';
+  $error[] = 'Please enter Day';
 }else{
   $day = $_POST['date'];
 }
 if(empty($_POST['scheduletype'])){
-  $error[] = 'Please enter Club Name';
+  $error[] = 'Please enter Schedule Type';
 }else{
   $schedule_type = $_POST['scheduletype'];
 }
 
 echo "<pre>". print_r($error, TRUE) . "</pre>";
 
-echo $month, $date, $schedule_type;
+echo $month, $day, $schedule_type;
 
 if(!empty($error)){
   foreach ($error as $e) {
@@ -53,21 +56,19 @@ die("DB Connection Error.". mysqli_connect_error());
 } else {
      echo "<p>DB Connection was successful.</p>";
 }
-#ClubName,ClubPassword, ClubSponsorName,ClubSponsorInfo,ClubMeetingLocation,ClubMeetingDescription
 
 $query = "INSERT INTO weirdschedules (month, day, schedule_type)
-VALUES ('{$month}', '{$day}', '{$schedule_type}')";
+VALUES ('{$month_hash[$month]}', '{$day}', '{$schedule_type}')";
 
 echo "<p>$query</p>";
-//$result = mysqli_query($dbconnector, $query);
+$result = mysqli_query($dbconnector, $query);
 if($result){
 echo "<p>Inserted data into table successfully.</p>";
 }else{
 echo "<p>Inserting data into table failed.</p>";
 }
 
+
+
+include("includes/footer.inc");
 ?>
-
-
-</body>
-</html>

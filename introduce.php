@@ -23,5 +23,6 @@ Club Meeting Description: <br>
 </form>
 
 <?php
+
 include("includes/footer.inc");
 ?>

@@ -89,3 +89,20 @@ font-family: Arial, Helvetica, sans-serif;
       <a href="submitschedulechange.php">Submit a Schedule Change</a>
       <a href="submitnewschedule.php">Submit a New Schedule</a>
     </div>
+
+    <?php
+
+    $month_hash = array();
+    $month_hash['01'] = "Jan";
+    $month_hash['02'] = "Feb";
+    $month_hash['03'] = "Mar";
+    $month_hash['04'] = "Apr";
+    $month_hash['05'] = "May";
+    $month_hash['06'] = "Jun";
+    $month_hash['07'] = "Jul";
+    $month_hash['08'] = "Aug";
+    $month_hash['09'] = "Sep";
+    $month_hash['10'] = "Oct";
+    $month_hash['11'] = "Nov";
+    $month_hash['12'] = "Dec";
+    ?>
