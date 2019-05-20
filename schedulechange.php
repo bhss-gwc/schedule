@@ -158,8 +158,6 @@
 
 Name of schedule type:
 <input type = "text" name = "nameofscheduletype"/><br>
-Date of schedule change: <br>
-<input type = "text" name = "dateofschedulechange"/><br><br>
 1st period: (example: 8-8:50 am)<br>
 <input type = "text" name = "1stperiod"/><br><br>
 2nd period: <br>

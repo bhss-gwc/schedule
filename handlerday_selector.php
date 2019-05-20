@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
 <?php
-$newornot = $_POST['newornot'];
-$month = $_POST['month'];
-$date = $_POST['date'];
-$type = $_POST['scheduletype'];
 
-//UPDATE SCHEDULE_CHANGE SO THAT IT ASKS FOR A DATE AND A MONTH INSTEAD OF A PHP FORMATTED DATE!!!!
-//connect to database
-//MAKE THE FILE PRETTIER
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bhss_schedule";
-$dbconnector = mysqli_connect($servername, $username, $password, $dbname);
 
-  if(isset($newornot)){
+  if(isset($_POST['newornot'])){
+
+
+    $newornot = $_POST['newornot'];
+    $month = $_POST['month'];
+    $date = $_POST['date'];
+    $type = $_POST['scheduletype'];
+
+    //UPDATE SCHEDULE_CHANGE SO THAT IT ASKS FOR A DATE AND A MONTH INSTEAD OF A PHP FORMATTED DATE!!!!
+    //connect to database
+    //MAKE THE FILE PRETTIER
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "bhss_schedule";
+    $dbconnector = mysqli_connect($servername, $username, $password, $dbname);
   echo '<p class="bg-danger">You want to create a new schedule.</p>';
   $cookie_name = "newschedule";
   $cookie_value = "yes";
