@@ -3,6 +3,7 @@
 <head>
 </head>
 <body>
+  
 <?php
 $numPeriods = 0;
 $error=array();
