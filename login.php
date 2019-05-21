@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
+<?php
+session_start();
+include("includes/common.inc");
+?>
 
-</head>
-
-<body>
 <h1>Login</h1>
 <form action = "handlerlogin.php" method="POST">
 		Club Name: <br>
@@ -17,6 +15,5 @@ Club Password: <br>
 
  		</form>
 
+<?php include("includes/footer.inc"); ?>
 
-</body>
-</html>

@@ -12,10 +12,10 @@ $adminName = "admin";
   if(!isset($_COOKIE['club-name'])){
   	exit();
   	}
-  $isAdmin = ()$_COOKIE['club-name'] == $adminName);
-?>
+  $isAdmin = ($_COOKIE['club-name'] == $adminName);
 
 if($isAdmin){
+?>
   <h1>Select Irregular Schedule</h1>
   <form action = handlermeetings.php method = "POST">
     <input type = "button" name = "selectschedule"/><br>
@@ -27,7 +27,9 @@ if($isAdmin){
     <input type = "button" name = "createschedule"/><br>
     <input type = "submit" value = "submit" /><br>
   </form>
+<?php
 }
+?>
 
 <h1>Form: Enter Information About The Meeting</h1>
 <form action = "handlermeetings.php" method="POST">

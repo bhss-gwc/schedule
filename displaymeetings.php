@@ -14,13 +14,16 @@ $dbname = "bhss_schedule";
 
 $today = date("Y-m-d");
 
+//echo $today;
+
+//exit(0);
 $dbconnector = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$dbconnector) {
     die("DB Connection Error" . mysqli_connect_error());
 }
 
-$query = "SELECT * FROM meetings ORDER by meetingdate WHERE meetingdate >= $today";
+$query = "SELECT * FROM meetings WHERE meetingdate >= $today ORDER by meetingdate";
 $result = mysqli_query($dbconnector, $query);
 
 if (mysqli_num_rows($result) > 0) {
