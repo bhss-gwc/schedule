@@ -10,6 +10,9 @@
   h2 {
   font-family: Arial, Helvetica, sans-serif;
   }
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+  }
   </style>
 
   <h1>Bloomington High School South</h1>
@@ -101,7 +104,7 @@
 
 <body>
 
-<h1>Form: Schedule Changes</h1><br>
+<h1>Schedule Changes</h1><br>
 <form action = "handlerschedulechange.php" method="POST">
 
   Select the month and day you are setting the schedule for:
@@ -159,15 +162,20 @@
 Name of schedule type:
 <input type = "text" name = "nameofscheduletype"/><br>
 1st period: (example: 8-8:50 am)<br>
-<input type = "text" name = "1stperiod"/><br><br>
+start time: <input type = "time" name = "start1stperiod"/><br>
+stop time: <input type = "time" name = "stop1stperiod"/><br><br>
 2nd period: <br>
-<input type = "text" name = "2ndperiod"/><br><br>
+start time: <input type = "time" name = "start2ndperiod"/><br>
+stop time: <input type = "time" name = "stop2ndperiod"/><br><br>
 3rd period: <br>
-<input type = "text" name = "3rdperiod"/><br><br>
+start time: <input type = "time" name = "start3rdperiod"/><br>
+stop time: <input type = "time" name = "stop3rdperiod"/><br><br>
 4th period: <br>
-<input type = "text" name = "4thperiod"/><br><br>
+start time: <input type = "time" name = "start4thperiod"/><br>
+stop time: <input type = "time" name = "stop4thperiod"/><br><br>
 5th period: <br>
-<input type = "text" name = "5thperiod"/><br><br>
+start time: <input type = "text" name = "start5thperiod"/><br>
+stop time: <input type = "text" name = "stop5thperiod"/><br><br>
 
 <input type = "submit" value = "submit" /><br>
 
