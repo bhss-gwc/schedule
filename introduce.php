@@ -1,5 +1,5 @@
 <?php
-include("includes/header.inc");
+include("includes/common.inc");
 ?>
 
 <h2>Introduce Your Club</h2>

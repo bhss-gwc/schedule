@@ -87,9 +87,11 @@ $basename = basename($uri);
 ?>
     <div class="navbar">
 <?php
-if($basename != "login.php"){
+if($basename != "login.php" && $basename != "introduce.php"){
 ?>
+<!--
       <a href="introduce.php">Introduce Your Club</a>
+-->
       <a href="displaymeetings.php"> Club Meetings</a>
       <a href="displayallclubinfo.php">Club Info</a>
       <a href="displayregularbellschedule.php">Regular Bell Schedule</a>
@@ -97,6 +99,12 @@ if($basename != "login.php"){
       <a href="submitschedulechange.php">Submit a Schedule Change</a>
       <a href="submitnewschedule.php">Submit a New Schedule</a>
 <?php
+}else{
+  if($basename == "introduce.php"){
+    //echo "Introduce Your Club";
+  }else{
+    echo '<a href="introduce.php">Introduce Your Club</a>';
+  }
 }
 ?>
     </div>
