@@ -98,6 +98,7 @@ if($basename != "login.php" && $basename != "introduce.php"){
       <a href="displayweirdscheduledates.php">Weird Bell Schedules</a>
       <a href="submitschedulechange.php">Submit a Schedule Change</a>
       <a href="submitnewschedule.php">Submit a New Schedule</a>
+      <a href="logout.php">Logout</a>
 <?php
 }else{
   if($basename == "introduce.php"){

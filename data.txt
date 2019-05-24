@@ -34,3 +34,8 @@
 05, 1, ISTEP
 05, 1, AP exams week 1
 Coding Club, abc123, Mr. Pizzo, kimele2003@gmail.com, A325, Until next september, 
+Cooking Club, stirfry, chef, chef, cafeteria, cooking food, 
+SAGE, figolah, figolah, figolah, figolah's room, earth stuff, 
+SAGE, figolah, figolah, figolah, figolah's room, earth stuff, 
+SAGE, figolah, figolah, figolah, figolah's room, earth stuff, 
+SAGE, figolah, figolah, figolah, figolah's room, earth stuff, 
