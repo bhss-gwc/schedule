@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("includes/common.inc");
+include("includes/headerintroduce.inc");
 ?>
 
 <h1>Login</h1>
@@ -16,4 +16,3 @@ Club Password: <br>
  		</form>
 
 <?php include("includes/footer.inc"); ?>
-
