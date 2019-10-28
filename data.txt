@@ -39,6 +39,7 @@ SAGE, figolah, figolah, figolah, figolah's room, earth stuff,
 SAGE, figolah, figolah, figolah, figolah's room, earth stuff, 
 SAGE, figolah, figolah, figolah, figolah's room, earth stuff, 
 SAGE, figolah, figolah, figolah, figolah's room, earth stuff, 
+<<<<<<< HEAD
 admin, admin, Overlords, brownkat6@mccsc.net, Pizzo's Room, overseeing things, 
 admin, admin, Overlords, brownkat6@mccsc.net, Pizzo's Room, overseeing things, 
 admin, admin, Overlords, brownkat6@mccsc.net, Pizzo's Room, overseeing things, 
@@ -48,3 +49,7 @@ overseer, admin, Overlords, brownkat6@mccsc.net, Pizzo's Room, overseeing things
 overseer, admin, Overlords, brownkat6@mccsc.net, Pizzo's Room, overseeing things, 
 overseers, admin, Overlords, brownkat6@mccsc.net, Pizzo's Room, overseeing things, 
 overseerss, admin, Overlords, brownkat6@mccsc.net, Pizzo's Room, overseeing things, 
+=======
+GWC, abc123, Mr. Pizzo, spizzo@mccsc.net, A325, do stuff, 
+GWC, abc123, Mr. Pizzo, spizzo@mccsc.net, A325, do stuff, 
+>>>>>>> master
