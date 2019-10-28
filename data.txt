@@ -39,6 +39,7 @@ SAGE, figolah, figolah, figolah, figolah's room, earth stuff,
 SAGE, figolah, figolah, figolah, figolah's room, earth stuff, 
 SAGE, figolah, figolah, figolah, figolah's room, earth stuff, 
 SAGE, figolah, figolah, figolah, figolah's room, earth stuff, 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 admin, admin, Overlords, brownkat6@mccsc.net, Pizzo's Room, overseeing things, 
 admin, admin, Overlords, brownkat6@mccsc.net, Pizzo's Room, overseeing things, 
@@ -53,3 +54,8 @@ overseerss, admin, Overlords, brownkat6@mccsc.net, Pizzo's Room, overseeing thin
 GWC, abc123, Mr. Pizzo, spizzo@mccsc.net, A325, do stuff, 
 GWC, abc123, Mr. Pizzo, spizzo@mccsc.net, A325, do stuff, 
 >>>>>>> master
+=======
+GWC, abc123, Mr. Pizzo, spizzo@mccsc.net, A325, do stuff, 
+GWC, abc123, Mr. Pizzo, spizzo@mccsc.net, A325, do stuff, 
+GWC, abc123, Mr. Pizzo, spizzo@mccsc.net, A325, do stuff, 
+>>>>>>> Stashed changes
