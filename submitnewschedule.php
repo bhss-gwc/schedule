@@ -4,6 +4,11 @@ include("includes/header.inc");
 $currentmonth = date("n");
 $currentdate = date("j");
 
+$admin_username = "admin";
+  if(!(isset($_COOKIE['club-name']) && $_COOKIE['club-name'] == $admin_username)){
+    echo "You don't have permission to view this page.";
+    return;
+  }
 ?>
 
 <h2>Submit a New Schedule</h2>
