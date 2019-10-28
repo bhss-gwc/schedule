@@ -90,8 +90,8 @@ font-family: Arial, Helvetica, sans-serif;
       //should only show if user is administrator
       <?php
         if(isset($_COOKIE['club-name']) && $_COOKIE['club-name'] == $admin_username){
-          echo "<a href="submitschedulechange.php">Submit a Schedule Change</a>
-                <a href="submitnewschedule.php">Submit a New Schedule</a>";
+          //echo "<a href="submitschedulechange.php">Submit a Schedule Change</a>
+                //<a href="submitnewschedule.php">Submit a New Schedule</a>";
         }
       ?>
     </div>

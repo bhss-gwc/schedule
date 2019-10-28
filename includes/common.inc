@@ -96,8 +96,13 @@ if($basename != "login.php" && $basename != "introduce.php"){
       <a href="displayallclubinfo.php">Club Info</a>
       <a href="displayregularbellschedule.php">Regular Bell Schedule</a>
       <a href="displayweirdscheduledates.php">Weird Bell Schedules</a>
-      <a href="submitschedulechange.php">Submit a Schedule Change</a>
-      <a href="submitnewschedule.php">Submit a New Schedule</a>
+      <?php
+      $admin_username = "admin";
+        if(isset($_COOKIE['club-name']) && $_COOKIE['club-name'] == $admin_username){
+          echo "<a href=\"submitschedulechange.php\">Submit a Schedule Change</a>
+                <a href=\"submitnewschedule.php\">Submit a New Schedule</a>";
+        }
+      ?>
       <a href="logout.php">Logout</a>
 <?php
 }else{
