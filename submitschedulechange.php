@@ -4,6 +4,11 @@ include("includes/header.inc");
   if(!isset($_COOKIE['club-name'])){
   	//exit();
   	}
+    $admin_username = "admin";
+      if(!(isset($_COOKIE['club-name']) && $_COOKIE['club-name'] == $admin_username)){
+        echo "You don't have permission to view this page.";
+        return;
+      }
 
 
 //connect to database
