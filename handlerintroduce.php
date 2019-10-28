@@ -76,12 +76,15 @@ if(mysqli_num_rows($result_one) > 0){
 $query2 = "INSERT INTO introduce_responses (clubname,clubpassword, clubsponsorname,clubsponsoremail,clubmeetinglocation,clubmeetingdescription)
 VALUES ('{$_POST['clubname']}', '{$_POST['clubpassword']}', '{$_POST['clubsponsorname']}', '{$_POST['clubsponsoremail']}', '{$_POST['clubmeetinglocation']}', '{$_POST['clubmeetingdescription']}')";
 
-
 $con = new mysqli($servername, $username, $password, $dbname);
+$clean_clubname = mysqli_real_escape_string($con, $_POST['clubsponsorname']);
+$clean_clubsponsoremail = mysqli_real_escape_string($con, $_POST['clubsponsoremail']);
+$clean_clubmeetinglocation = mysqli_real_escape_string($con, $_POST['clubmeetinglocation']);
+$clean_clubmeetingdescription = mysqli_real_escape_string($con, $_POST['clubmeetingdescription']);
 $stmt = $con->prepare("INSERT INTO introduce_responses (clubname,clubpassword, clubsponsorname,clubsponsoremail,clubmeetinglocation,clubmeetingdescription)
 VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param('ssssss', $_POST['clubname'], $_POST['clubpassword'], mysql_real_escape_string($_POST['clubsponsorname']),
- mysql_real_escape_string($_POST['clubsponsoremail']), mysql_real_escape_string($_POST['clubmeetinglocation']), mysql_real_escape_string($_POST['clubmeetingdescription']));
+$stmt->bind_param('ssssss', $_POST['clubname'], $_POST['clubpassword'], $clean_clubname,
+ $clean_clubsponsoremail, $clean_clubmeetinglocation, $clean_clubmeetingdescription);
 $stmt->execute();
 $result2 = $stmt->get_result();
 
