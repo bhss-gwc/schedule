@@ -90,7 +90,7 @@ $basename = basename($uri);
 if($basename != "login.php" && $basename != "introduce.php"){
 ?>
 <!--
-      <a href="introduce.php">Introduce Your Club</a>
+
 -->
       <a href="displaymeetings.php"> Club Meetings</a>
       <a href="displayallclubinfo.php">Club Info</a>
@@ -105,6 +105,7 @@ if($basename != "login.php" && $basename != "introduce.php"){
         if(isset($_COOKIE['club-name'])){
           echo "<a href=\"logout.php\">Logout</a>";
         }else{
+          echo "<a href=\"introduce.php\">Introduce Your Club</a>";
           echo "<a href=\"login.php\">Login</a>";
         }
       ?>
