@@ -2,13 +2,13 @@
 // Always start this first
 session_start();
 
-if ( isset( $_SESSION['user_id'] ) ) {
+#if ( isset( $_SESSION['user_id'] ) ) {
     // Grab user data from the database using the user_id
     // Let them access the "logged in only" pages
-} else {
+#} else {
     // Redirect them to the login page
-    header("Location: http://$_SERVER[HTTP_HOST]/schedule/login.php");
-}
+#    header("Location: http://$_SERVER[HTTP_HOST]/schedule/login.php");
+#}
 
 
 include("common.inc");
