@@ -102,8 +102,12 @@ if($basename != "login.php" && $basename != "introduce.php"){
           echo "<a href=\"submitschedulechange.php\">Submit a Schedule Change</a>
                 <a href=\"submitnewschedule.php\">Submit a New Schedule</a>";
         }
+        if(isset($_COOKIE['club-name'])){
+          <a href="logout.php">Logout</a>
+        }else{
+          <a href="login.php">Login</a>
+        }
       ?>
-      <a href="logout.php">Logout</a>
 <?php
 }else{
   if($basename == "introduce.php"){
