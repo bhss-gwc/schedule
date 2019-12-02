@@ -81,12 +81,11 @@ font-family: Arial, Helvetica, sans-serif;
   <body style="font-family:Arial, Helvetica, sans-serif;">
 
     <div class="navbar">
-      <a href="introduce.php">Introduce Your Club</a>
       <a href="displaymeetings.php"> Club Meetings</a>
       <a href="displayallclubinfo.php">Club Info</a>
 
       <a href="displayregularbellschedule.php">Regular Bell Schedule</a>
       <a href="displayweirdscheduledates.php">Weird Bell Schedules</a>
-
+      <a href="introduce.php">Introduce Your Club</a>
       <a href="login.php">Login</a>
     </div>
