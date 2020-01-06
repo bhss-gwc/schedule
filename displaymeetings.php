@@ -47,6 +47,11 @@ if (mysqli_num_rows($result) > 0) {
   echo "</table>";
 }
 
+//if the user is logged in as a specific club, they can add a club meeting to the schedule
+if(isset($_COOKIE['club-name'])){
+  echo "<a href=\"meetings.php\">Add Schedule</a>";
+}
+
 ?>
 
 <?php
