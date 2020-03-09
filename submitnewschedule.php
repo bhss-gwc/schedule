@@ -14,8 +14,7 @@ $admin_username = "admin";
 <h2>Submit a New Schedule</h2>
 This form is for creating an entirely new bell schedule for a certain day.<br><br><br>
 
-
-<br><br>1. Name of new schedule type (ex: ISTEP math part 1):<br><br>
+1. Name of new schedule type (ex: ISTEP math part 1):<br><br>
 <input type = "text" name = "newscheduletype"/><br>
 
 <br>2. Insert bell schedule times:<br><br>
