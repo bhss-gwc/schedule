@@ -1,6 +1,4 @@
 <?php
-// Always start this first
-session_start();
 
 #if ( isset( $_SESSION['user_id'] ) ) {
     // Grab user data from the database using the user_id
@@ -10,8 +8,11 @@ session_start();
 #    header("Location: http://$_SERVER[HTTP_HOST]/schedule/login.php");
 #}
 
-
 include("common.inc");
+if(!isset($_SESSION['user_id'])){
+    header("Location: login.php");
+}
+
 
 //echo $_SESSION['user_id'];
 
@@ -28,4 +29,6 @@ include("common.inc");
     $month_hash['10'] = "Oct";
     $month_hash['11'] = "Nov";
     $month_hash['12'] = "Dec";
+
+include("db.inc");
 ?>

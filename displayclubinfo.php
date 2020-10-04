@@ -1,5 +1,5 @@
 <?php
-include("includes/header.inc");
+include("includes/common.inc");
 ?>
 
 <h2>Club Info</h2>
@@ -11,7 +11,7 @@ $clubname = $_GET['club'];
 // connect to database
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "bhss_schedule";
 
 $dbconnector = mysqli_connect($servername, $username, $password, $dbname);
@@ -20,7 +20,11 @@ if (!$dbconnector) {
     die("DB Connection Error" . mysqli_connect_error());
 }
 
-$query = "SELECT * FROM introduce_responses WHERE clubname ='". $clubname ."'";
+$query = "SELECT * FROM introduce_responses";
+if(isset($clubname)){
+  $query = "SELECT * FROM introduce_responses WHERE clubname ='". $clubname ."'";
+}
+
 $result = mysqli_query($dbconnector, $query);
 
 if (mysqli_num_rows($result) > 0) {

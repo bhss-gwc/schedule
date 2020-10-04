@@ -1,9 +1,10 @@
 <?php
-include("includes/headerintroduce.inc");
+include("includes/common.inc");
 ?>
 
 <h2>Introduce Your Club</h2>
-
+<p>This form should only be filled out once for each club. Typically the club leader should fill this out.<br>
+The club name and club password that you enter will be the username and password used in the club login.</p>
 <form action = "handlerintroduce.php" method="POST">
 Club Name: <br>
 	<input type = "text" name = "clubname"/><br><br>

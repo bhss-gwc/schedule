@@ -13,7 +13,7 @@ if ( ! empty( $_POST ) ) {
 	    //connect to database
 	    $servername = "localhost";
 	    $username = "root";
-	    $password = "";
+	    $password = "root";
 	    $dbname = "bhss_schedule";
 	    $dbconnector = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -35,6 +35,7 @@ if ( ! empty( $_POST ) ) {
     	//if ( password_verify( $_POST['clubpassword'], $user->clubpassword ) ) {
     	if ( $_POST['clubpassword'] == $user->clubpassword ) {
     		$_SESSION['user_id'] = $user->id;
+        $_SESSION['club-name'] = $clubname;
 		$cookie_name = "club-name";
 		$cookie_value = $clubname;
 		setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day

@@ -7,12 +7,15 @@
 <body>
 
 <?php
+
+include("includes/common.inc");
+
 $adminName = "admin";
 
-  if(!isset($_COOKIE['club-name'])){
+  if(!isset($_SESSION['club-name'])){
   	exit();
   	}
-  $isAdmin = ($_COOKIE['club-name'] == $adminName);
+  $isAdmin = ($_SESSION['club-name'] == $adminName);
 
 if($isAdmin){
 ?>
@@ -29,16 +32,55 @@ if($isAdmin){
   </form>
 <?php
 }
+
+// define variables and set to empty values
+$meetingdateErr = $meetingtimeErr = $clubmeetinglocationErr = $clubmeetingdescriptionErr = "";
+$meetingdate = $meetingtime = $clubmeetinglocation = $clubmeetingdescription = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["meetingdate"])) {
+    $meetindateErr = "Meeting date is required";
+  } else {
+    $meetingdate = test_input($_POST["meetingdate"]);
+  }
+
+  if (empty($_POST["meetingtime"])) {
+    $meetingtimeErr = "Meeting time is required";
+  } else {
+    $meetingtime = test_input($_POST["meetingtime"]);
+  }
+
+  if (empty($_POST["clubmeetinglocation"])) {
+    $clubmeetinglocationErr = "";
+  } else {
+    $clubmeetinglocation = test_input($_POST["clubmeetinglocation"]);
+  }
+
+  if (empty($_POST["clubmeetingdescription"])) {
+    $clubmeetingdescriptionErr = "";
+  } else {
+    $clubmeetingdescription = test_input($_POST["clubmeetingdescription"]);
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
 ?>
 
-<h1>Form: Enter Information About The Meeting</h1>
+<h2>Enter information about your club meeting</h2>
+<p><span class="error">* required field</span></p>
 <form action = "handlermeetings.php" method="POST">
 Meeting Date: <br>
-<input type = "text" name = "meetingdate"/><br><br>
+<input type = "date" name = "meetingdate"/><br><br>
 Start Time: <br>
-<input type = "text" name = "starttime"/><br><br>
+<input type = "time" name = "starttime"/><br><br>
 Stop Time: <br>
-<input type = "text" name = "stoptime"/><br><br>
+<input type = "time" name = "stoptime"/><br><br>
 Club Meeting Location (optional): <br>
 <input type = "text" name = "clubmeetinglocation"/><br><br>
 Club Meeting Description (optional): <br>

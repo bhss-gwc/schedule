@@ -6,7 +6,7 @@ $schedule_type = $_GET['schedule_type'];
 // connect to database
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "bhss_schedule";
 
 $dbconnector = mysqli_connect($servername, $username, $password, $dbname);

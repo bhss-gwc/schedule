@@ -1,22 +1,10 @@
 <?php
-include("includes/header.inc");
+include("includes/common.inc");
 ?>
 
 <h2>Weird Bell Schedules</h2>
 
 <?php
-
-// connect to database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bhss_schedule";
-
-$dbconnector = mysqli_connect($servername, $username, $password, $dbname);
-
-if (!$dbconnector) {
-    die("DB Connection Error" . mysqli_connect_error());
-}
 
 
 $query = "SELECT * FROM weirdschedules ORDER by day asc";
