@@ -40,7 +40,7 @@ if ( ! empty( $_POST ) ) {
 		$cookie_value = $clubname;
 		setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 
-		header( "Location: http://$_SERVER[HTTP_HOST]/schedule/displaymeetings.php" );
+		header( "Location: displaymeetings.php" );
 	}else{
 		echo "<p><font color=\"red\">Either the club name or password you entered is incorrect.</font></p>";
 	}
