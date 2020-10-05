@@ -1,5 +1,5 @@
 <?php
-include("includes/common.inc");
+include("includes/db.inc");
 
 if(!empty($_POST['selectschedule'])){
   header( 'Location: submitschedulechange.php' );
@@ -48,18 +48,6 @@ fwrite($fileconnecter, $inputstring);
 fclose($fileconnecter);
 
 
-//connect to database
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "bhss_schedule";
-$dbconnector = mysqli_connect($servername, $username, $password, $dbname);
-
-if(!$dbconnector){
-die("DB Connection Error.". mysqli_connect_error());
-} else {
- 			 echo "<p>DB Connection was successful.</p>";
-}
 $query = "INSERT INTO meetings (meetingdate,starttime,stoptime,clubmeetinglocation,clubmeetingdescription,clubname)
 VALUES ('{$_POST['meetingdate']}', '{$_POST['starttime']}', '{$_POST['stoptime']}', '{$_POST['clubmeetinglocation']}', '{$_POST['clubmeetingdescription']}', '$clubname')";
 

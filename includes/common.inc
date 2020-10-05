@@ -116,7 +116,7 @@ if(isset($_SESSION['user_id'])){
 }else{
 
 ?>
-  <a href="login.php">Club Login</a> 
+  <a href="login.php">Login</a> 
   <?php
 }
 // My daddy put this debugging trick:

@@ -32,7 +32,7 @@ if (mysqli_num_rows($result) > 0) {
     <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$time_in_12_hour_format_stop}</td>
     <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['clubmeetinglocation']}</td>
     <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$row['clubmeetingdescription']}</td>";
-    if($row['clubname']==$_SESSION['club-name']){
+    if(isset($_SESSION['club-name']) and $row['clubname']==$_SESSION['club-name']){
         echo "<td style=\"font-family: Arial, Helvetica, sans-serif;\"><a href=\"editclubmeeting.php?id={$row['id']}\">Edit</a></td>";
     } else {
         echo "<td style=\"font-family: Arial, Helvetica, sans-serif;\">&nbsp;</td>";

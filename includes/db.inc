@@ -9,10 +9,11 @@ $dbname = "bhss_schedule";
 //echo $today;
 
 //exit(0);
-$dbconnector = mysqli_connect($servername, $username, $password, $dbname);
+// $dbconnector = mysqli_connect($servername, $username, $password, $dbname);
+$dbconnector = new mysqli($servername, $username, $password, $dbname);
 
-if (!$dbconnector) {
-    die("DB Connection Error" . mysqli_connect_error());
+if ($dbconnector->connect_error) {
+    die("DB Connection Error: " . $dbconnector->connect_error);
 }
 ?>
 
