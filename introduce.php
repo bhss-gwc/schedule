@@ -9,7 +9,7 @@ The club name and club password that you enter will be the username and password
 Club Name: <br>
 	<input type = "text" name = "clubname"/><br><br>
 Club Password: <br>
-	<input type = "text" name = "clubpassword"/><br><br>
+	<input type = "password" name = "clubpassword"/><br><br>
 Club Sponsor Name: <br>
 <input type = "text" name = "clubsponsorname"/><br><br>
 Club Sponsor Email: <br>
