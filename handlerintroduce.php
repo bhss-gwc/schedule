@@ -63,14 +63,21 @@ if(isset($_POST['check']) and $_POST['check']=="update"){
     WHERE id={$_POST['id']}";
 }
 $stmt = $dbconnector->prepare($query);
-$stmt->bind_param('ssssss', $clean_clubname, $clean_clubpassword, $clean_clubsponsorname, $clean_clubsponsoremail, $clean_clubmeetinglocation, $clean_clubmeetingdescription ); 
+if($stmt == false){
+  echo "Statement is not prepared";
+}else{
+  echo "Statement is prepared";
+}
+if(!$stmt->bind_param('ssssss', $clean_clubname, $clean_clubpassword, $clean_clubsponsorname, $clean_clubsponsoremail, $clean_clubmeetinglocation, $clean_clubmeetingdescription )){
+  echo "<br>Binding error";
+}
 echo "<p>$query</p>";
 // $result = mysqli_query($dbconnector, $query);
-$result = $stmt->execute();
-if($result == true){
+// $result = $stmt->execute();
+if($stmt->execute()){
   header("Location: displayclubinfo.php");
 }else{
-  echo "<p>Oops something is wrong. Insertion/updating failed.</p>";
+  echo "<p>Oops something is wrong. Insertion/updating failed.</p>" . $stmt->error;
 }
 
 
