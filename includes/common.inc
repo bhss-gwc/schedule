@@ -5,7 +5,6 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-<img src="https://pbs.twimg.com/profile_images/986982577704615936/g0npeZDz_400x400.jpg" style="float:right;width:100px;height:100px;">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 h1 {
@@ -93,7 +92,12 @@ font-family: Arial, Helvetica, sans-serif;
     </head>
   <body style="font-family:Arial, Helvetica, sans-serif;">
 
-<h1>Bloomington High School South</h1>
+<table style="margin-top:-10px;margin-bottom:-25px;position:relative;" border=0>
+  <tr>
+    <td><img src="https://pbs.twimg.com/profile_images/986982577704615936/g0npeZDz_400x400.jpg" style="float:left;width:70px;height:70px;"></td>
+    <td><h1>Bloomington High School South</h1></td>
+  </tr>
+</table>
 
 <?php
 if(isset($_SESSION['club-name'])){
