@@ -31,4 +31,6 @@ if(!isset($_SESSION['user_id'])){
     $month_hash['12'] = "Dec";
 
 include("db.inc");
+
+// echo "<h1>$counter</h1>";
 ?>
