@@ -24,7 +24,7 @@ font-family: Arial, Helvetica, sans-serif;
     }
     .navbar {
         overflow: hidden;
-        background-color: #751299;
+        background-color: #620185;
     }
 
     .navbar a {
@@ -86,13 +86,24 @@ font-family: Arial, Helvetica, sans-serif;
     .show {
         display: block;
     }
+    .topnav-right {
+    float: right;
+    }
     </style>
     </head>
   <body style="font-family:Arial, Helvetica, sans-serif;">
 
 <h1>Bloomington High School South</h1>
+
+<?php
+if(isset($_SESSION['club-name'])){
+  echo "<div align=right>Hello, <b>" . $_SESSION['club-name'] . "</b></div>";
+}else{
+  echo "<div align=right>&nbsp;</div>";
+}
+?>
 <div class="navbar">
-  <a href="displayregularbellschedule.php">Home</a>
+  <a href="displaytodaysbellschedule.php">Today's Bell Schedule</a>
   <div class="dropdown">
     <button class="dropbtn">Clubs 
       <i class="fa fa-caret-down"></i>
@@ -105,21 +116,19 @@ font-family: Arial, Helvetica, sans-serif;
   </div>
 <?php
 if(isset($_SESSION['user_id'])){
-    $admin_username = "admin";
-    if(isset($_SESSION['club-name']) && $_SESSION['club-name'] == $admin_username){
-        echo "<a href=\"bell_schedule.php\">Different Bell Schedules</a>
-        <a href=\"displaybellschedule.php\">Today's Bell Schedules</a>
-        <a href=\"submitschedulechange.php\">Submit a Schedule Change</a>
-        <a href=\"submitnewschedule.php\">Submit a New Schedule</a>";
+//    $admin_username = "admin";
+//    if(isset($_SESSION['club-name']) && $_SESSION['club-name'] == $admin_username){
+    if(isset($_SESSION['role']) && $_SESSION['role'] == 'officer'){
+        echo "<a href=\"submitnewschedule.php\">Submit a New Bell Schedule</a>";
     }
-    echo "<a href=\"logout.php\">Logout</a>";
+    echo "<div class='topnav-right'><a href=\"logout.php\">Logout</a></div>";
 }else{
 
 ?>
-  <a href="login.php">Login</a> 
+  <div class='topnav-right'><a href="login.php">Login</a></div> 
   <?php
 }
-// My daddy put this debugging trick:
+
 // This tells why cookie is not trustable variable. e.g., a space in cooke 
 // varilabe is replaced with '+' sign.
 // echo print_r($_COOKIE);

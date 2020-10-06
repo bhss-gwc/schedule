@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("includes/db.inc");
 
 if(!empty($_POST['selectschedule'])){

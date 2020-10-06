@@ -17,25 +17,26 @@ $result = mysqli_query($dbconnector, $query);
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
     echo "
-    <h2>Edit club meeting</h2>
-<p><span class=\"error\">* required field</span></p>
+    <h2 align=center>Edit Club Meeting</h2>
 <form action = \"handlermeetings.php\" method=\"POST\">
-Meeting Date: <br>
-<input type = \"date\" name=\"meetingdate\" value=\"{$row['meetingdate']}\"/><br><br>
-Start Time: <br>
+<table align=center>
+<tr><td><b>Meeting date: </b>
+<input type = \"date\" name=\"meetingdate\" value=\"{$row['meetingdate']}\"/><br><br></td>
+<tr><td><b>Start Time: </b>
 <input type = \"time\" name=\"starttime\" value=\"{$row['starttime']}\"/><br><br>
-Stop Time: <br>
+<tr><td><b>Stop Time: </b>
 <input type = \"time\" name = \"stoptime\" value = \"{$row['stoptime']}\"/><br><br>
-Club Meeting Location (optional): <br>
+<tr><td><b>Club Meeting Location</b>  (optional):
 <input type = \"text\" name = \"clubmeetinglocation\" value = \"{$row['clubmeetinglocation']}\"/><br><br>
-Club Meeting Description (optional): <br>
+<tr><td><b>Club Meeting Description</b> (optional):
 <input type = \"text\" name = \"clubmeetingdescription\" value = \"{$row['clubmeetingdescription']}\"/><br><br>
 
-<input type = \"hidden\" name=\"check\" value = \"update\" /><br>
-<input type = \"hidden\" name=\"id\" value = \"{$row['id']}\" /><br>
-<input type=\"button\" value=\"Cancel\" onclick=\"history.back()\"/>
-<input type = \"submit\" value = \"Submit\" /><br>
+<input type = \"hidden\" name=\"check\" value = \"update\" />
+<input type = \"hidden\" name=\"id\" value = \"{$row['id']}\" />
+<tr><td><div style=\"text-align:center\"><input type=\"button\" value=\"Cancel\" onclick=\"history.back()\"/>
+<input type = \"submit\" value = \"Submit\" /><br></div></td>
 
+</table>
  		</form>";
   }
 }

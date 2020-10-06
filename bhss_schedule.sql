@@ -27,12 +27,15 @@ CREATE TABLE `introduce_responses` (
   `clubname` varchar(30) NOT NULL,
   `clubsponsorname` varchar(30) NOT NULL,
   `clubsponsoremail` varchar(30) NOT NULL,
+  `clubleadername` varchar(100) NOT NULL,
+  `clubcommunication` varchar(100) NOT NULL,
   `clubmeetinglocation` varchar(30) NOT NULL,
-  `clubmeetingdescription` varchar(30) NOT NULL,
+  `clubmeetingdescription` varchar(100) NOT NULL,
   `clubpassword` varchar(255) NOT NULL,
   `role` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `clubname` (`clubname`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +44,7 @@ CREATE TABLE `introduce_responses` (
 
 LOCK TABLES `introduce_responses` WRITE;
 /*!40000 ALTER TABLE `introduce_responses` DISABLE KEYS */;
-INSERT INTO `introduce_responses` VALUES (10,'Coding Club','Mr. Pizzo','spizzo@mccsc.net','A325','Do stuf','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(12,'Freee Debate Case','Katrina','Katrina','Katrina','Katrina','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(13,'sdga','wrtqw','qrtqe','ertqet','ertqe','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(14,'root','','','','','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','admin'),(15,'overseer','Mr. Pizzo','spizzo@mccsc.net','A325','do stuff','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(16,'chess club','joe','joe','Joe','Joe','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(17,'bhssadmin','','','','','$2y$10$BVMdj.UMj7aKvuU76MTxDeXnBdFYLLKWgpRtWb/udrjJDm06hmlzC','officer'),(18,'food club','mr. food','food@gmail.com','cafeteria','eating food','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(20,'drink club','mr. food','food@gmail.com','cafeteria','eating food','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(21,'soccer club','mr. food','kimele2003@gmail.com','cafeteria','eating food','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club');
+INSERT INTO `introduce_responses` VALUES (10,'Coding Club','Mr. Pizzo','spizzo@mccsc.net','EK','Discord','A325','fun stuff','$2y$10$nRtfzQRnVRjuVi94KzZrE.NhJxQZdBqfAI24ZtHB/ary.CkWZtUYi','club'),(14,'root','','','','','','','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','admin'),(16,'Chess Club','joe','joe','','','Joe','Joe','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(17,'bhssadmin','','','','','','','$2y$10$BVMdj.UMj7aKvuU76MTxDeXnBdFYLLKWgpRtWb/udrjJDm06hmlzC','officer'),(18,'food club','mr. food','food@gmail.com','','','cafeteria','eating food','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(20,'drink club','mr. food','food@gmail.com','','','cafeteria','eating food','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(21,'debate','mr. food','kimele2003@gmail.com','','','cafeteria','eating food','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(22,'Dance Club','dance teacher','dance@gmail.com','dancer','[GroupMe link]','purple gym','dancing','$2y$10$05ENx9.tgJa/1i/Wqt0U/OZ7cfyFnKhVuwAasFg6ydP7e2UAqDUEK','club');
 /*!40000 ALTER TABLE `introduce_responses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,10 +61,12 @@ CREATE TABLE `meetings` (
   `starttime` varchar(30) NOT NULL,
   `stoptime` varchar(30) NOT NULL,
   `clubmeetinglocation` varchar(30) NOT NULL,
-  `clubmeetingdescription` varchar(30) NOT NULL,
+  `clubmeetingdescription` varchar(100) NOT NULL,
   `clubname` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  KEY `cname` (`clubname`),
+  CONSTRAINT `cname` FOREIGN KEY (`clubname`) REFERENCES `introduce_responses` (`clubname`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +75,7 @@ CREATE TABLE `meetings` (
 
 LOCK TABLES `meetings` WRITE;
 /*!40000 ALTER TABLE `meetings` DISABLE KEYS */;
-INSERT INTO `meetings` VALUES (26,'2020-10-03','3 pm','4 pm','A325','Do stuf','debate'),(27,'2020-10-05','3 pm','4 pm','','','debate'),(28,'2020-10-06','right now','as soon as i get the case','Katrina','Katrina',''),(29,'2020-10-04','3 pm','4 pm','A325','Do stuf',''),(30,'2020-10-04','3 pm','4 pm','A325','Do stuf',''),(44,'2020-10-04','15:00','16:00','cafeteria','','chess club'),(45,'2020-10-10','15:20','15:22','Gym','','chess club'),(46,'2020-10-04','15:00','22:00','cafeteria','','chess club');
+INSERT INTO `meetings` VALUES (26,'2020-10-03','3 pm','4 pm','A325','Do stuf','Coding Club'),(27,'2020-10-05','15:00','16:00','','','Coding Club'),(29,'2020-10-04','15:00','15:30','A325','Do stuf','Coding Club'),(30,'2020-10-04','15:00','16:00','A325','Do stuf','Coding Club'),(44,'2020-10-04','15:00','16:00','cafeteria','','Coding Club'),(45,'2020-10-10','15:20','15:22','Gym','','Coding Club'),(46,'2020-10-04','15:00','22:00','cafeteria','','Coding Club'),(47,'2020-10-09','15:00','15:35','purple gym','practicing choreo in the large purple gym','Dance Club'),(48,'2020-10-11','15:15','16:00','','','Chess Club');
 /*!40000 ALTER TABLE `meetings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,18 +89,27 @@ DROP TABLE IF EXISTS `schedulechange`;
 CREATE TABLE `schedulechange` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
   `schedule_type` varchar(30) NOT NULL,
-  `1stperiodstart` varchar(30) NOT NULL,
-  `1stperiodstop` varchar(30) NOT NULL,
-  `2ndperiodstart` varchar(30) NOT NULL,
-  `2ndperiodstop` varchar(30) NOT NULL,
-  `3rdperiodstart` varchar(30) NOT NULL,
-  `3rdperiodstop` varchar(30) NOT NULL,
-  `4thperiodstart` varchar(30) NOT NULL,
-  `4thperiodstop` varchar(30) NOT NULL,
-  `5thperiodstart` varchar(30) NOT NULL,
-  `5thperiodstop` varchar(30) NOT NULL,
+  `newscheduledate` varchar(30) NOT NULL,
+  `1periodstart` varchar(30) NOT NULL,
+  `1periodstop` varchar(30) NOT NULL,
+  `2periodstart` varchar(30) NOT NULL,
+  `2periodstop` varchar(30) NOT NULL,
+  `srtperiodstart` varchar(30) NOT NULL,
+  `srtperiodstop` varchar(30) NOT NULL,
+  `3periodstart` varchar(30) NOT NULL,
+  `3periodstop` varchar(30) NOT NULL,
+  `Alunchperiodstart` varchar(30) NOT NULL,
+  `Alunchperiodstop` varchar(30) NOT NULL,
+  `Blunchperiodstart` varchar(30) NOT NULL,
+  `Blunchperiodstop` varchar(30) NOT NULL,
+  `Clunchperiodstart` varchar(30) NOT NULL,
+  `Clunchperiodstop` varchar(30) NOT NULL,
+  `4periodstart` varchar(30) NOT NULL,
+  `4periodstop` varchar(30) NOT NULL,
+  `5periodstart` varchar(30) NOT NULL,
+  `5periodstop` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +118,7 @@ CREATE TABLE `schedulechange` (
 
 LOCK TABLES `schedulechange` WRITE;
 /*!40000 ALTER TABLE `schedulechange` DISABLE KEYS */;
-INSERT INTO `schedulechange` VALUES (1,'','8 am - 8:50 am','0','8:55 am - 9:05 am','','9:10 am - 2 pm','','2:05 pm - 2:30 pm','','',''),(2,'','8 am - 8:50 am','0','8:55 am - 9:05 am','','9:10 am - 2 pm','','2:05 pm - 2:30 pm','','',''),(3,'','8 am - 8:50 am','0','8:55 am - 9:05 am','','9:10 am - 2 pm','','2:05 pm - 2:30 pm','','','');
+INSERT INTO `schedulechange` VALUES (1,'Regular','','08:00','9:05','9:10','10:15','10:20','10:50','10:55','12:35','10:55','11:25','11:30','12:00','12:05','12:35','12:40','1:45','1:50','2:55'),(6,'ISTEP testing week 1','2020-10-10','','','','','12:02','12:02','','','','','','','','','','14:02','14:03',''),(7,'AP testing week 1','2020-10-11','14:02','14:02','14:02','14:02','14:02','14:02','14:02','14:02','14:03','14:03','14:03','14:03','14:03','14:03','14:02','14:02','14:03','14:04'),(8,'AP testing week 2','2020-10-07','15:03','15:03','15:03','15:03','15:03','15:03','15:03','15:03','15:04','15:04','15:05','15:05','15:06','15:06','15:03','15:03','16:03','16:03'),(9,'Tri 1 Finals','2020-10-08','08:00','09:00','09:00','10:00','10:00','11:00','11:00','12:00','11:00','11:20','11:20','11:40','11:40','12:00','12:00','14:00','14:00','15:00'),(10,'Tri 1 Finals 2','2020-10-09','15:03','15:03','15:03','15:03','14:03','15:03','15:03','15:03','15:03','15:03','15:03','15:03','15:03','15:03','15:03','15:03','15:33','15:03'),(11,'Tri 1 Finals 3','2020-10-13','','','','','14:02','14:02','','','','','','','','','','14:02','14:02',''),(12,'ISTEP math part 1','2020-10-05','08:00','09:00','09:00','10:00','10:00','11:00','11:00','12:00','11:00','11:20','11:20','11:40','11:40','12:00','12:00','13:00','13:00','15:00');
 /*!40000 ALTER TABLE `schedulechange` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,4 +155,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-04 21:43:16
+-- Dump completed on 2020-10-06 14:48:40

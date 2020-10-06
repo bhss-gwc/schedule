@@ -20,13 +20,14 @@ if ( ! empty( $_POST ) ) {
     	//if ( $_POST['clubpassword'] == $user->clubpassword ) {
     		$_SESSION['user_id'] = $user->id;
         $_SESSION['club-name'] = $clubname;
+        $_SESSION['role'] = $user->role;
 		$cookie_name = "club-name";
 		$cookie_value = $clubname;
 		setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 
 		header( "Location: displaymeetings.php" );
 	}else{
-		echo "<p><font color=\"red\">Either the club name or password you entered is incorrect.</font></p>";
+		echo "<br><br><p align=center><font color=\"red\">Either the club name or password you entered is incorrect.</font></p>";
 	}
     }
 }

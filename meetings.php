@@ -10,14 +10,16 @@
 
 include("includes/common.inc");
 
+/*
 $adminName = "admin";
 
   if(!isset($_SESSION['club-name'])){
   	exit();
   	}
-  $isAdmin = ($_SESSION['club-name'] == $adminName);
+$isAdmin = ($_SESSION['club-name'] == $adminName);
+$isOfficer = ($_SESSION['role'] == 'officer');
 
-if($isAdmin){
+if($isOfficer){
 ?>
   <h1>Select Irregular Schedule</h1>
   <form action = handlermeetings.php method = "POST">
@@ -29,9 +31,12 @@ if($isAdmin){
   <form action = handlermeetings.php method = "POST">
     <input type = "button" name = "createschedule"/><br>
     <input type = "submit" value = "submit" /><br>
-  </form>
+    </form>
+
 <?php
 }
+
+ */
 
 // define variables and set to empty values
 $meetingdateErr = $meetingtimeErr = $clubmeetinglocationErr = $clubmeetingdescriptionErr = "";
@@ -72,22 +77,24 @@ function test_input($data) {
 
 ?>
 
-<h2>Enter information about your club meeting</h2>
-<p><span class="error">* required field</span></p>
+<h2 align=center>Add Club Meeting Entry</h2>
+<p align=center style="color:red;">After submitting, you will be able to edit this club meeting entry by clicking "Edit" on the club meetings table.</p>
 <form action = "handlermeetings.php" method="POST">
-Meeting Date: <br>
-<input type = "date" name = "meetingdate"/><br><br>
-Start Time: <br>
-<input type = "time" name = "starttime"/><br><br>
-Stop Time: <br>
-<input type = "time" name = "stoptime"/><br><br>
-Club Meeting Location (optional): <br>
-<input type = "text" name = "clubmeetinglocation"/><br><br>
-Club Meeting Description (optional): <br>
-<input type = "text" name = "clubmeetingdescription"/><br><br>
+<table align=center>
+<tr><td><b>Meeting date: </b>
+<input type = "date" name = "meetingdate"/><br><br></td><br>
+<tr><td><b>Start time: </b>
+<input type = "time" name = "starttime"/><br><br></td><br>
+<tr><td><b>Stop time: </b>
+<input type = "time" name = "stoptime"/><br><br></td><br>
+<tr><td><b>Club meeting location</b> (optional):
+<input type = "text" name = "clubmeetinglocation"/><br><br></td><br>
+<tr><td><b>Club meeting description</b> (optional): 
+<input type = "text" name = "clubmeetingdescription"/><br><br</td><br>
 
-<input type = "submit" value = "submit" /><br>
+<tr><td><div style="text-align:center"><input type = "submit" value = "Submit" /><br></div></td>
 
- 		</form>
+</table>
+</form>
 </body>
 </html>

@@ -17,27 +17,31 @@ $result = mysqli_query($dbconnector, $query);
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
     echo "
-    <h2>Edit club meeting</h2>
-<p><span class=\"error\">* required field</span></p>
+    <h2 align=center>Edit Club Info</h2>
 <form action = \"handlerintroduce.php\" method=\"POST\">
-Club Name: <br>
+<table align=center>
+<tr><td><b>Club name: </b>
 <input type = \"text\" name=\"clubname\" value=\"{$row['clubname']}\"/><br><br>
-Club Password: <br>
+<tr><td><b>Club password: </b>
 <input type = \"password\" name=\"clubpassword\" /><br><br>
-Club Sponsor Name: <br>
+<tr><td><b>Club sponsor name: </b>
 <input type = \"text\" name = \"clubsponsorname\" value = \"{$row['clubsponsorname']}\"/><br><br>
-Club Sponsor Email: <br>
+<tr><td><b>Club sponsor email: </b>
 <input type = \"text\" name = \"clubsponsoremail\" value = \"{$row['clubsponsoremail']}\"/><br><br>
-Club Meeting Location (optional): <br>
+<tr><td><b>Club leader(s) name(s): </b>
+<input type = \"text\" name = \"clubleadername\" value = \"{$row['clubleadername']}\"/><br><br>
+<tr><td><b>Club's method of communication: </b>
+<input type = \"text\" name = \"clubcommunication\" value = \"{$row['clubcommunication']}\"/><br><br>
+<tr><td><b>Club meeting location </b>(optional): 
 <input type = \"text\" name = \"clubmeetinglocation\" value = \"{$row['clubmeetinglocation']}\"/><br><br>
-Club Meeting Description (optional): <br>
+<tr><td><b>Club meeting description </b>(optional): 
 <input type = \"text\" name = \"clubmeetingdescription\" value = \"{$row['clubmeetingdescription']}\"/><br><br>
+<input type = \"hidden\" name=\"check\" value = \"update\" />
+<input type = \"hidden\" name=\"id\" value = \"{$row['id']}\" />
+<tr><td><div style=\"text-align:center\"><input type=\"button\" value=\"Cancel\" onclick=\"history.back()\"/>
+<input type = \"submit\" value = \"Submit\" /></div></td>
 
-<input type = \"hidden\" name=\"check\" value = \"update\" /><br>
-<input type = \"hidden\" name=\"id\" value = \"{$row['id']}\" /><br>
-<input type=\"button\" value=\"Cancel\" onclick=\"history.back()\"/>
-<input type = \"submit\" value = \"Submit\" /><br>
-
+</table>
  		</form>";
   }
 }
