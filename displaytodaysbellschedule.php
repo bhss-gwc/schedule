@@ -44,14 +44,16 @@ if (mysqli_num_rows($result) == 0) {
 } 
 
 echo "<table id='meetings' border='1' align=center width='30%' bgcolor='#D2B4DE'><tr>
-  <th style=\"font-family: Arial, Helvetica, sans-serif;\">Period</th>
+  <th colspan='2' style=\"font-family: Arial, Helvetica, sans-serif;\">Period</th>
   <th style=\"font-family: Arial, Helvetica, sans-serif;\">Start Time</th>
   <th style=\"font-family: Arial, Helvetica, sans-serif;\">Stop Time</th>
   </tr>";
 
+$table_array = array(1=>0, 2=>0, 3=>0, 4=>0, 8=>0, 9=>0);
 while ($row = mysqli_fetch_assoc($result)) {
   echo "<h3 align=center> {$row['schedule_type']} </h3>";
   for($i = 1; $i<=9; $i++){
+    if($i == 4) continue;
     $period = $i;
     if($i == 3){
       $period = "srt";
@@ -81,18 +83,31 @@ while ($row = mysqli_fetch_assoc($result)) {
     $time_12_hr_periodstart  = date("g:i a", strtotime($row[$period . 'periodstart']));
     $time_12_hr_periodstop  = date("g:i a", strtotime($row[$period . 'periodstop']));
     if(! is_numeric($period) and $period != "srt"){
-      $period = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;". $period;
-      $time_12_hr_periodstart = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;". $time_12_hr_periodstart;
-      $time_12_hr_periodstop = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;". $time_12_hr_periodstop;
+      $period = preg_replace("/lunch/", " lunch", $period);
+      $time_12_hr_periodstart = "". $time_12_hr_periodstart;
+      $time_12_hr_periodstop = "". $time_12_hr_periodstop;
     }
-    echo "<tr>
-      <td style=\"font-family: Arial, Helvetica, sans-serif;\">". $period ."</td>
-      <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$time_12_hr_periodstart}</td>
-      <td style=\"font-family: Arial, Helvetica, sans-serif;\">{$time_12_hr_periodstop}</td>
-      </tr>";
+    $period = (($period == "srt")?"SRT/P+":$period);
+    if(array_key_exists($i, $table_array)){
+      echo "<tr>
+        <td colspan=\"2\" style=\"font-family: Arial, Helvetica, sans-serif;padding-left: 20px; padding-right:20px;\">". $period ."</td>
+        <td align='center' style=\"font-family: Arial, Helvetica, sans-serif;\">{$time_12_hr_periodstart}</td>
+        <td align='center' style=\"font-family: Arial, Helvetica, sans-serif;\">{$time_12_hr_periodstop}</td>
+        </tr>";
+    }else{
+      echo "<tr>";
+      if($i == 5){
+         echo  "<td rowspan='3' style=\"font-family: Arial, Helvetica, sans-serif;padding-left: 20px;\">3</td>";
+      }
+      echo  "<td align='center' style=\"font-family: Arial, Helvetica, sans-serif;\">". $period ."</td>
+        <td align='center' style=\"font-family: Arial, Helvetica, sans-serif;\">{$time_12_hr_periodstart}</td>
+        <td align='center' style=\"font-family: Arial, Helvetica, sans-serif;\">{$time_12_hr_periodstop}</td>
+        </tr>";
+    }
   }
 
   $schedule_id = $row['id'];
+  $schedule_type = $row['schedule_type'];
 }
 //echo $schedule_id;
 echo "</table>";
@@ -103,7 +118,8 @@ echo "</table>";
 <?php
 
 if(isset($_SESSION['role']) && $_SESSION['role']=="officer"){
-  if($schedule_id != '1'){
+//  if($schedule_id != '1'){ // TODO: after adding this line I got the Google Translate pop up
+  if($schedule_type != 'Regular'){ // TODO: after adding this line I got the Google Translate pop up
     echo "<p align=center><b><a href=\"editnewschedule.php?id={$schedule_id}\">Edit Bell Schedule</a></b></p>";
   }
 }

@@ -155,12 +155,14 @@ if(empty($_POST['2periodstart'])){
 if(empty($_POST['2periodstop'])){
   $error[] = 'Please enter 2nd period stop';
 }
+/*
 if(empty($_POST['3periodstart'])){
   $error[] = 'Please enter 3rd period start';
 }
 if(empty($_POST['3periodstop'])){
   $error[] = 'Please enter 3rd period stop';
 }
+ */
 if(empty($_POST['4periodstart'])){
   $error[] = 'Please enter 4th period start';
 }

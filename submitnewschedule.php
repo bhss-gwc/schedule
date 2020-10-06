@@ -15,31 +15,34 @@ $admin_username = "bhssadmin";
 <p style="color:red;" align=center>This form is for creating an entirely new bell schedule for a certain day.</p>
 <form action=handlersubmitnewschedule.php method="POST">
 <table align=center>
-<tr><td><b>1. Name of new schedule type</b> (ex: ISTEP math part 1):
-<input type = "text" name = "schedule_type"/><br><br></td>
+<tr>
+<td><b>1. Name of new schedule type</b> (ex: ISTEP math part 1):
+<input type = "text" name = "schedule_type"/><br><br></td></tr>
 <tr><td><b>2. Date of new bell schedule:</b>
-<input type = "date" name = "newscheduledate"/><br><br></td>
-<tr><td><b>3. Insert bell schedule times:</b><br></td>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1st period:
-<input type = "time" name = "1periodstart"/> - <input type = "time" name = "1periodstop"/><br></td>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2nd period:
-<input type = "time" name = "2periodstart"/> - <input type = "time" name = "2periodstop"/><br></td>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SRT/P+:
-<input type = "time" name = "srtperiodstart"/> - <input type = "time" name = "srtperiodstop"/><br></td>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3rd period:
-<input type = "time" name = "3periodstart"/> - <input type = "time" name = "3periodstop"/><br></td>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A lunch: 
-<input type = "time" name = "Alunchperiodstart"/> - <input type = "time" name = "Alunchperiodstop"/><br></td>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B lunch: 
-<input type = "time" name = "Blunchperiodstart"/> - <input type = "time" name = "Blunchperiodstop"/><br></td>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C lunch: 
-<input type = "time" name = "Clunchperiodstart"/> - <input type = "time" name = "Clunchperiodstop"/><br></td>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4th period:
-<input type = "time" name = "4periodstart"/> - <input type = "time" name = "4periodstop"/><br></td>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5th period:
-<input type = "time" name = "5periodstart"/> - <input type = "time" name = "5periodstop"/><br><br></td>
-
-<tr><td><div style="text-align:center"><input type = "submit" value = "Submit"><br><br></div></td>
+<input type = "date" name = "newscheduledate"/><br><br></td></tr>
+<tr><td><b>3. Insert bell schedule times:</b><br><br>
+<table align=center width=70%>
+<tr><td colspan="2">1st period:</td><td>
+<input type = "time" name = "1periodstart"/> - <input type = "time" name = "1periodstop"/><br></td></tr>
+<tr><td colspan="2">2nd period:</td><td>
+<input type = "time" name = "2periodstart"/> - <input type = "time" name = "2periodstop"/><br></td></tr>
+<tr><td colspan="2">SRT/P+:</td><td>
+<input type = "time" name = "srtperiodstart"/> - <input type = "time" name = "srtperiodstop"/><br></td></tr>
+<tr><td rowspan="3">3rd period:</td>
+<td>A lunch:</td><td> 
+<input type = "time" name = "Alunchperiodstart"/> - <input type = "time" name = "Alunchperiodstop"/><br></td></tr>
+<tr><td>B lunch:</td><td> 
+<input type = "time" name = "Blunchperiodstart"/> - <input type = "time" name = "Blunchperiodstop"/><br></td></tr>
+<tr><td>C lunch:</td><td> 
+<input type = "time" name = "Clunchperiodstart"/> - <input type = "time" name = "Clunchperiodstop"/><br></td></tr>
+<tr><td colspan="2">4th period:</td><td>
+<input type = "time" name = "4periodstart"/> - <input type = "time" name = "4periodstop"/><br></td></tr>
+<tr><td colspan="2">5th period:</td><td>
+<input type = "time" name = "5periodstart"/> - <input type = "time" name = "5periodstop"/><br></td></tr>
+</table>
+</td>
+</tr>
+<tr><td><br><div style="text-align:center"><input type = "submit" value = "Submit"><br><br></div></td>
 
 </table>
 </form>
