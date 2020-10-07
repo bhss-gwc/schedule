@@ -1,5 +1,6 @@
 <?php
-include("includes/header.inc");
+include("includes/common.inc");
+include("includes/db.inc");
 ?>
 
 <h2 align=center>Club Meetings</h2>

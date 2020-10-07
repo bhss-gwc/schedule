@@ -1,16 +1,15 @@
 <?php
-session_start();
 include("includes/db.inc");
 include("includes/common.inc");
 
 $error=array();
 if(empty($_POST['clubname'])){
   //  $error[] = 'Please enter Club name<br>';
-		echo "<br><br><p align=center><font color=\"red\">Please enter Club name</font></p>";
+		echo "<br><br><p align=center><font color=\"red\">Please enter Club name.</font></p>";
 }
 if(empty($_POST['clubpassword']) and !isset($_POST['check'])){
     // $error[] = 'Please enter Club password<br>';
-		echo "<br><br><p align=center><font color=\"red\">Please enter Club password</font></p>";    
+		echo "<br><br><p align=center><font color=\"red\">Please enter Club password.</font></p>";    
 }
 // echo "<pre>". print_r($error, TRUE) . "</pre>";
 if(!empty($error)){
@@ -22,7 +21,7 @@ exit();
 }
 
 $clubname = "";
-if(isset($_POST['clubname'])){
+if(isset($_POST['clubname']) && $_POST['clubname'] != ""){
   $clubname = $_POST['clubname'];
   $_SESSION['club-name'] = $clubname;
 }
@@ -60,8 +59,10 @@ $clean_clubmeetingdescription = mysqli_real_escape_string($dbconnector,$_POST['c
 //$user = $result->fetch_object();
 
 
+$check = 0;
 
 if(isset($_POST['check']) and $_POST['check']=="update"){
+  $check = 1;
   if(isset($_POST['clubpassword']) and $_POST['clubpassword'] != ""){
     $query = "UPDATE introduce_responses 
       SET clubname=?,
@@ -69,8 +70,6 @@ if(isset($_POST['check']) and $_POST['check']=="update"){
           clubsponsorname=?,
           clubsponsoremail=?,
           clubleadername=?,
-          clubcommunication=?,
-          clubmeetinglocation=?,
           clubmeetingdescription=?
       WHERE id={$_POST['id']}";
   }else{
@@ -86,14 +85,14 @@ if(isset($_POST['check']) and $_POST['check']=="update"){
   }
 }
 
-/*
+
 $stmt = $dbconnector->prepare($query);
 if($stmt == false){
   echo "Statement is not prepared";
 }else{
   echo "Statement is prepared";
 }
- */
+
 
 if(isset($_POST['clubpassword']) and $_POST['clubpassword'] != ""){
   if(!$stmt->bind_param('ssssssss', $clean_clubname, $clean_clubpassword, $clean_clubsponsorname, $clean_clubsponsoremail, $clean_clubleadername, $clean_clubcommunication, $clean_clubmeetinglocation, $clean_clubmeetingdescription )){
@@ -107,12 +106,20 @@ if(isset($_POST['clubpassword']) and $_POST['clubpassword'] != ""){
 // echo "<p>$query</p>";
 // $result = mysqli_query($dbconnector, $query);
 // $result = $stmt->execute();
+
 if($stmt->execute()){
+  /*
+  if($check == 1){
+    echo "Your club information has been successfully updated.";
+  }else{
+    echo "Your club information has been successfully added.";
+  }
+   */
   header("Location: displayclubinfo.php");
-} /* else{
+} else{
   echo "<p>Oops something is wrong. Insertion/updating failed.</p>" . $stmt->error;
 }
- */
+
 
 ?>
 

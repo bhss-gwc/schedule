@@ -78,7 +78,7 @@ function test_input($data) {
 ?>
 
 <h2 align=center>Add Club Meeting Entry</h2>
-<p align=center style="color:red;">After submitting, you will be able to edit this club meeting entry by clicking "Edit" on the club meetings table.</p>
+<p align=center style="color:red;">After submitting, you will be able to edit this club meeting entry by clicking "Edit" on the <a href="displaymeetings.php">club meetings table</a>.</p>
 <form action = "handlermeetings.php" method="POST">
 <table align=center>
 <tr><td><b>Meeting date: </b>
