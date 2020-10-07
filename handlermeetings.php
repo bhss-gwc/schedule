@@ -12,13 +12,16 @@ if(!empty($_POST['createschedule'])){
 
 $error=array();
 if(empty($_POST['meetingdate'])){
-  $error[] = 'Please enter Meeting Date';
+  //$error[] = 'Please enter Meeting Date';
+    echo "<br><br><p align=center><font color=\"red\">Please enter Meeting Date.</font></p>";
 }
 if(empty($_POST['starttime'])){
-  $error[] = 'Please enter Start Time';
+  //$error[] = 'Please enter Start Time';
+		echo "<br><br><p align=center><font color=\"red\">Please enter Start time.</font></p>";    
 }
 if(empty($_POST['stoptime'])){
-  $error[] = 'Please enter Stop Time';
+  //$error[] = 'Please enter Stop Time';
+		echo "<br><br><p align=center><font color=\"red\">Please enter Stop time.</font></p>";    
 }
 echo "<pre>". print_r($error, TRUE) . "</pre>";
 if(!empty($error)){

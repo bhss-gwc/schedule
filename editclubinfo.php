@@ -2,9 +2,21 @@
 include("includes/header.inc");
 ?>
 
+<script>
+function check_input() {
+  nn = document.getElementById('club_name').value;
+  if (nn == "") {
+    alert('Club name is required.');
+    return false;
+  }
+}
+</script>
 
 <?php
 
+if(!isset($_GET['id'])){
+  header("Location: displayclubinfo.php");
+}
 $id = $_GET['id'];
 
 $query = "SELECT * FROM introduce_responses";
@@ -21,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
 <form action = \"handlerintroduce.php\" method=\"POST\">
 <table align=center>
 <tr><td><b>Club name: </b>
-<input type = \"text\" name=\"clubname\" value=\"{$row['clubname']}\"/><br><br>
+<input id=\"club_name\" type = \"text\" name=\"clubname\" value=\"{$row['clubname']}\"/><br><br>
 <tr><td><b>Club password: </b>
 <input type = \"password\" name=\"clubpassword\" /><br><br>
 <tr><td><b>Club sponsor name: </b>
@@ -39,7 +51,7 @@ if (mysqli_num_rows($result) > 0) {
 <input type = \"hidden\" name=\"check\" value = \"update\" />
 <input type = \"hidden\" name=\"id\" value = \"{$row['id']}\" />
 <tr><td><div style=\"text-align:center\"><input type=\"button\" value=\"Cancel\" onclick=\"history.back()\"/>
-<input type = \"submit\" value = \"Submit\" /></div></td>
+<input onclick=\"return check_input()\" type = \"submit\" value = \"Submit\" /></div></td>
 
 </table>
  		</form>";
