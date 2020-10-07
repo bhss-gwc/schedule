@@ -34,7 +34,7 @@ CREATE TABLE `counter` (
 
 LOCK TABLES `counter` WRITE;
 /*!40000 ALTER TABLE `counter` DISABLE KEYS */;
-INSERT INTO `counter` VALUES (1,28);
+INSERT INTO `counter` VALUES (1,41);
 /*!40000 ALTER TABLE `counter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +67,7 @@ CREATE TABLE `introduce_responses` (
 
 LOCK TABLES `introduce_responses` WRITE;
 /*!40000 ALTER TABLE `introduce_responses` DISABLE KEYS */;
-INSERT INTO `introduce_responses` VALUES (10,'Coding Club','Mr. Pizzo','spizzo@mccsc.net','EK','Discord','A325','fun stuff','$2y$10$nRtfzQRnVRjuVi94KzZrE.NhJxQZdBqfAI24ZtHB/ary.CkWZtUYi','club'),(14,'root','','','','','','','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','admin'),(16,'Chess Club','joe','joe','','','Joe','Joe','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(17,'bhssadmin','','','','','','','$2y$10$BVMdj.UMj7aKvuU76MTxDeXnBdFYLLKWgpRtWb/udrjJDm06hmlzC','officer'),(18,'food club','mr. food','food@gmail.com','','','cafeteria','eating food','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(20,'drink club','mr. food','food@gmail.com','','','cafeteria','eating food','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(21,'debate','mr. food','kimele2003@gmail.com','','','cafeteria','eating food','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(22,'Dance Club','dance teacher','dance@gmail.com','dancer','[GroupMe link]','purple gym','dancing','$2y$10$05ENx9.tgJa/1i/Wqt0U/OZ7cfyFnKhVuwAasFg6ydP7e2UAqDUEK','club'),(23,'test2','<a href=\\\"babo.php\\\">Hello</a>','','','','','','$2y$10$EbavE.4Zn9i6bMgPpn0jyeRFC0NH7gfEciYwoHr3WbCsusmy6qomK','club'),(24,'test3','','','','https://www.mccsc.edu/Domain/28','','','$2y$10$DfzIpm.54hd2P6JiqczyU.USRDLtKa6lWiTZt/kxP7X/Tq41olm16','club');
+INSERT INTO `introduce_responses` VALUES (10,'Girls Who Code','Mr. Pizzo','spizzo@mccsc.net','EK','[Discord join link]','A325','fun stuff','$2y$10$nRtfzQRnVRjuVi94KzZrE.NhJxQZdBqfAI24ZtHB/ary.CkWZtUYi','club'),(14,'root','','','','','','','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','admin'),(16,'Chess Club','Mr. Joe','joe@mccsc.edu','Chuck','chessclub@gmail.com','A210','','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(17,'bhssadmin','','','','','','','$2y$10$BVMdj.UMj7aKvuU76MTxDeXnBdFYLLKWgpRtWb/udrjJDm06hmlzC','officer'),(18,'Food Club','Mr. Food','Food@gmail.com','Foodie','https://discord.gg/xxxxxx','cafeteria','eating food','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(20,'Drink Club','Mr. Drink','drink@mccsc.edu','','https://groupme.com/join_group/xxxxxxxx/xxxxxx','Cafeteria','','$2y$10$wpF03Tr3NDiUxe5TvHxkI.TmptUMRRgkhuPHJnj9NozWXzZ4qpI8q','club'),(22,'Dance Club','dance teacher','dance@gmail.com','dancer','[GroupMe link]','purple gym','dancing','$2y$10$05ENx9.tgJa/1i/Wqt0U/OZ7cfyFnKhVuwAasFg6ydP7e2UAqDUEK','club');
 /*!40000 ALTER TABLE `introduce_responses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +89,7 @@ CREATE TABLE `meetings` (
   PRIMARY KEY (`id`),
   KEY `cname` (`clubname`),
   CONSTRAINT `cname` FOREIGN KEY (`clubname`) REFERENCES `introduce_responses` (`clubname`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `meetings` (
 
 LOCK TABLES `meetings` WRITE;
 /*!40000 ALTER TABLE `meetings` DISABLE KEYS */;
-INSERT INTO `meetings` VALUES (26,'2020-10-03','3 pm','4 pm','A325','Do stuf','Coding Club'),(27,'2020-10-05','15:00','16:00','','','Coding Club'),(29,'2020-10-04','15:00','15:30','A325','Do stuf','Coding Club'),(30,'2020-10-04','15:00','16:00','A325','Do stuf','Coding Club'),(44,'2020-10-04','15:00','16:00','cafeteria','','Coding Club'),(45,'2020-10-10','15:20','15:22','Gym','','Coding Club'),(46,'2020-10-04','15:00','22:00','cafeteria','','Coding Club'),(47,'2020-10-09','15:00','15:35','purple gym','practicing choreo in the large purple gym','Dance Club'),(48,'2020-10-11','15:15','16:00','','','Chess Club'),(49,'','','','','','Dance Club'),(50,'','','','','','Dance Club'),(51,'','','','','','Dance Club'),(52,'','','','','','Dance Club'),(53,'','','','','','Dance Club'),(54,'2020-10-07','19:48','19:51','<alashadgl>,,,. ?????????!!!!','','Dance Club'),(55,'2020-10-06','20:54','21:54','','','test2'),(56,'2020-10-22','','','','','Dance Club');
+INSERT INTO `meetings` VALUES (26,'2020-10-03','3 pm','4 pm','A325','Do stuf','Girls Who Code'),(27,'2020-10-05','15:00','16:00','','','Girls Who Code'),(29,'2020-10-04','15:00','15:30','A325','Do stuf','Girls Who Code'),(30,'2020-10-04','15:00','16:00','A325','Do stuf','Girls Who Code'),(44,'2020-10-04','15:00','16:00','cafeteria','','Girls Who Code'),(45,'2020-10-10','15:20','15:22','Gym','','Girls Who Code'),(46,'2020-10-04','15:00','22:00','cafeteria','','Girls Who Code'),(47,'2020-10-09','15:00','15:35','purple gym','practicing choreo in the large purple gym','Dance Club'),(48,'2020-10-11','15:15','16:00','','','Chess Club'),(49,'','','','','','Dance Club'),(50,'','','','','','Dance Club'),(51,'','','','','','Dance Club'),(52,'','','','','','Dance Club'),(53,'','','','','','Dance Club'),(54,'2020-10-07','19:48','19:51','white gym','','Dance Club'),(56,'2020-10-22','','','','','Dance Club'),(57,'','','','','','Chess Club'),(58,'','','','','','Chess Club');
 /*!40000 ALTER TABLE `meetings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,4 +178,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-06 20:18:01
+-- Dump completed on 2020-10-06 20:59:25
